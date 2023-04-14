@@ -1,0 +1,228 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{forest}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\title{\vspace{-4cm}2023代组第五次作业}
+\author{2000013058 杨仕博}
+\date{\today}
+\begin{document}
+\maketitle
+
+\subsection*{21}
+
+熟知循环群的子群仍为循环群，因而$H_1, H_2$为循环群，
+设$H_1 = <a>, H_2 = <b>, G = <g>, a = g^s, b = g^t$，
+有$ab = g^{s + t} = ba$，又有$(r, s) = 1$，因而由熟知结论，
+$<ab>$为$rs$阶循环群。而$<ab>\subseteq G$，故$G = <ab> \subseteq H_1H_2$。
+
+又对任意$x=a^p\in H_1, y=b^q\in H_2$，由中国剩余定理，
+存在$l\in Z^+,\ s.t.l\equiv p(\mod r), l\equiv q(\mod s)$，
+$xy=(ab)^l\in <ab> = G$。故$H_1H_2\subseteq G$
+
+故$H_1H_2 = G$
+
+\subsection*{23}
+
+对于无限群G，如果$G$中存在某个元素生成的循环群a是无限群，
+则$\forall r\in Z^+, <a^r>\leq G$，因而G有无限多的子群
+
+如果不存在这样的元素，那么我们可以每次从G中任取一个不属于
+已经被取出的集合的元素，取出它生成的循环群，这是有限阶的。
+因而我们取出的子群的元素总是有限的，总能取出不在这些里的元素，
+进而能不断取出不同的子群。这个过程可以无限重复下去，因而G有无限多的子群
+
+\subsection*{24}
+
+(1)
+
+\[
+\sigma\tau = 
+\begin{pmatrix}
+    1 &2 &3 &4 &5\\
+    3 &4 &5 &2 &1
+\end{pmatrix}
+\]
+
+\[
+\tau\sigma = 
+\begin{pmatrix}
+    1 &2 &3 &4 &5\\
+    2 &4 &5 &1 &3
+\end{pmatrix}
+\]
+
+\[
+\sigma^{-1} = 
+\begin{pmatrix}
+    1 &2 &3 &4 &5\\
+    2 &5 &4 &3 &1
+\end{pmatrix}
+\]
+
+\[
+\tau^{-1} = 
+\begin{pmatrix}
+    1 &2 &3 &4 &5\\
+    3 &5 &2 &1 &4
+\end{pmatrix}
+\]
+
+(2)
+
+$\sigma = (1\ 5\ 2)(3\ 4) = (1\ 2)(1\ 5)(3\ 4)$
+
+$\tau = (1\ 4\ 5\ 2\ 3) = (1\ 3)(1\ 2)(1\ 5)(1\ 4)$
+
+\subsection*{25}
+
+(1)
+
+对任意$i\neq j, 1\notin\{i, j\}$，
+$(1\ i)(1\ j)(1\ i) = (1\ i)(1\ i\ j) = (i\ j)$，
+因而这个集合可以生成所有对换，而所有置换可以通过对换生成，
+因而这个集合可以生成所有置换
+
+(2)
+
+由于对任意x, y, z, $(y\ z)(x\ y)(y\ z) = (x\ z)$
+
+因而对任意$i < j$，在原来集合中，
+
+$((i+1)\ (i+2))(i\ (i+1))((i+1)\ (i+2)) = (i\ (i+2))$
+
+$((i+2)\ (i+3))(i\ (i+2))((i+2)\ (i+3)) = (i\ (i+3))$
+
+依次类推，最终可以生成$(i\ (i+k)), \forall k\in N^+$，从而
+可以生成$(i\ j)$
+
+因而这个集合可以生成所有对换，而所有置换可以通过对换生成，
+因而这个集合可以生成所有置换
+
+\subsection*{27}
+
+$(1\ 2\ 3\ 4)(1\ 2\ 3\ 4) = (1\ 3)(2\ 4)$
+
+$(1\ 3)(2\ 4)(1\ 2\ 3\ 4) = (1\ 4\ 3\ 2)$
+
+$(1\ 4\ 3\ 2)(1\ 2\ 3\ 4) = (1)$
+
+因而，$H = \{(1\ 2\ 3\ 4), (1\ 3)(2\ 4), (1\ 4\ 3\ 2), (1)\}$
+
+$H$在$S_4$中共有$|S_4| / |H| = 6$个右陪集，他们分别是：
+
+$H = \{(1\ 2\ 3\ 4), (1\ 3)(2\ 4), (1\ 4\ 3\ 2), (1)\}$
+
+$H(1\ 2) = \{(1\ 3\ 4), (1\ 4\ 2\ 3), (2\ 4\ 3), (1\ 2)\}$
+
+$H(1\ 3) = \{(1\ 4)(2\ 3), (2\ 4), (1\ 2)(3\ 4), (1\ 3)\}$
+
+$H(1\ 4) = \{(2\ 3\ 4), (1\ 2\ 4\ 3), (1\ 3\ 2), (1\ 4)\}$
+
+$H(2\ 3) = \{(1\ 2\ 4), (1\ 3\ 4\ 2), (1\ 4\ 3), (2\ 3)\}$
+
+$H(3\ 4) = \{(1\ 2\ 3), (1\ 3\ 2\ 4), (1\ 4\ 2), (3\ 4)\}$
+
+\subsection*{28}
+
+对于$x, y\in G, xH=yH\Leftrightarrow y^{-1}x\in H$
+
+设$x = \begin{pmatrix}
+    r_x& s_x\\
+    0& 1
+\end{pmatrix}, 
+y = \begin{pmatrix}
+    r_y& s_y\\
+    0& 1
+\end{pmatrix}$，
+则
+$y^{-1} = \begin{pmatrix}
+    1/r_y& -s_y/r_y\\
+    0& 1
+\end{pmatrix}$，
+$y^{-1}x = \begin{pmatrix}
+    r_x/r_y& s_x / r_y - s_y/r_y\\
+    0& 1
+\end{pmatrix}$
+
+$y^{-1}x\in H\Leftrightarrow r_x = r_y$
+
+又$\begin{pmatrix}
+    r& 0\\
+    0& 1
+\end{pmatrix}\begin{pmatrix}
+    1& t\\
+    0& 1
+\end{pmatrix} = \begin{pmatrix}
+    r& t\\
+    0& 1
+\end{pmatrix}$
+
+故H在G中的全部左陪集形如$\{
+    \begin{pmatrix}
+        r& t\\
+        0& 1
+    \end{pmatrix} | t\in Q
+\}, r\neq 0, r\in Q$
+
+\subsection*{31}
+
+假设题设中的$p^m$阶群为G
+
+对m作归纳法：
+
+当m=1时，G本身为自己的p阶子群
+
+当$m\geq 2$时，假设命题对所有小于m的正整数成立，那么，
+G中一定存在不为单位元的元素$a$，$<a>$构成G的子群。若
+$|a| = p^{m}$，则$<a^{p^{m-1}}>$构成G的p阶子群。
+否则，由于$|a|\Big|p$，知$|a| = p^{k}, k < m$，又
+$a\neq e$，知$k \neq 0$，因而由归纳假设，$<a>$有p阶
+子群
+
+由归纳原理，命题得证
+
+\subsection*{34}
+
+我们记$f(\sigma)$为$\sigma$的轮换指数，记$g((a_1\ a_2\ ... a_n)) = \{a_1, a_2, ..., a_n\}$
+
+我们希望证明，对任意置换$\sigma$和任意
+$a\neq b$，$f(\sigma (a\ b)) = f((a\ b)\sigma)$
+
+我们设$\sigma = \sigma_1\sigma_2...\sigma_n$为$\sigma$的
+不交轮换分解。我们设下标最大的零个、一个或两个轮换中的元素与$A=\{a, b\}$有交
+
+我们分类讨论这些情况：
+
+(1) 若仅有$\sigma_n$与$A$有交，那么：
+
+i. 若$|g(\sigma_n)\bigcap A| = 1$，可不妨设$\sigma_n = (a\ a_2\ ... a_n)$，则
+$\sigma_n(a\ b) = (a\ b\ a_2\ a_3\ ...a_n)$，
+$(a\ b)\sigma_n = (a\ a_2\ a_3\ ...\ a_n\ b)$，
+这两项都与其他轮换不交，长度相等，故$f(\sigma (a\ b)) = f(\sigma_1\sigma_2...\sigma_n(a\ b)) = f(\sigma_1\sigma_2...\sigma_{n-1}(a\ b)\sigma_n) = f((a\ b)\sigma_1\sigma_2...\sigma_n) = f((a\ b)\sigma)$
+
+ii. 若$|g(\sigma_n)\bigcap A| = 2$，且对应的两个元素在$\sigma_n$中相连，可不妨设$\sigma_n = (a\ b\ a_3\ ... a_n)$，有
+$\sigma_n(a\ b) = (a\ a_3\ ...a_n)$，
+$(a\ b)\sigma_n = (b\ a_3\ ...a_n)$，
+这两项都与其他轮换不交，长度相等，故$f(\sigma (a\ b)) = f(\sigma_1\sigma_2...\sigma_n(a\ b)) = f(\sigma_1\sigma_2...\sigma_{n-1}(a\ b)\sigma_n) = f((a\ b)\sigma_1\sigma_2...\sigma_n) = f((a\ b)\sigma)$
+
+iii. 若$|g(\sigma_n)\bigcap A| = 2$，且对应的两个元素在$\sigma_n$中不相连，可不妨设$a_1 = a, a_i = b(i\neq 2\land i\neq n)$，有
+$\sigma_n(a\ b) = (a\ a_{i+1}\ a_{i+2}\ ... a_n)(b\ a_2\ a_3\ ... a_{i-1})$，
+$(a\ b)\sigma_n = (a\ a_2\ a_3\ ...a_{i-1})(b\ a_{i+1}...a_n)$
+这四项与其他轮换不交，且前者的前一部分和后者的后一部分等长，后者的前一部分和前者的后一部分等长，故
+$f(\sigma (a\ b)) = f(\sigma_1\sigma_2...\sigma_n(a\ b)) = f(\sigma_1\sigma_2...\sigma_{n-1}(a\ b)\sigma_n) = f((a\ b)\sigma_1\sigma_2...\sigma_n) = f((a\ b)\sigma)$
+
+(2) 若A与$\sigma_{n-1}$与$\sigma_n$都相交，不妨设$\sigma_n = (a\ a_2\ ... a_n)$，$\sigma_{n-1} = (b\ b_2\ ... b_n)$，
+则$\sigma_{n-1}\sigma_n(a\ b) = \sigma_{n-1}(b\ a_2\ ...\ a_n\ a) = (b\ a_2\ ...\ a_n\ a\ b_2\ b_3\ ...\ b_n)$，
+$(a\ b)\sigma_{n-1}\sigma_n = (a\ b\ b_2\ ... b_n)\sigma_n = (a\ a_2\ ... a_n\ b\ b_2\ ...b_n)$，
+这两项都与其他轮换不交，长度相等，故$f(\sigma (a\ b)) = f(\sigma_1\sigma_2...\sigma_n(a\ b)) = f(\sigma_1\sigma_2...\sigma_{n-2}(a\ b)\sigma_{n-1}\sigma_n) = f((a\ b)\sigma_1\sigma_2...\sigma_n) = f((a\ b)\sigma)$
+
+(3) 若没有一项与A有交，那么这些轮换都可交换，进而结论成立。
+
+由此，对于$\tau^{-1}\sigma\tau$，我们设$\tau = \tau_1\tau_2...\tau_n$为$\tau$的轮换分解，有$f(\tau^{-1}\sigma\tau) = f(\tau_n\tau_{n-1}...\tau_1\sigma\tau_1\tau_2...\tau_n) = f(\tau_n\tau_n\tau_{n-1}...\tau_1\sigma\tau_1\tau_2...\tau_{n-1})=f(\tau_{n-1}...\tau_1\sigma\tau_1\tau_2...\tau_{n-1})=f(\tau_{n-2}...\tau_1\sigma\tau_1\tau_2...\tau_{n-2}) = ... = f(\sigma)$
+
+因而此题得证。
+
+\end{document}

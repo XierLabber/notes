@@ -1,0 +1,3 @@
+([('hello',
+   '/Users/bytedance/Desktop/notes/univ/FoundationOfProgramming/test/dist/hello',
+   'EXECUTABLE')],)

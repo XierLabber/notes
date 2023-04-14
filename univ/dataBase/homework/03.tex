@@ -1,0 +1,110 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{forest}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\title{\vspace{-4cm}2023数据库概论第三次作业}
+\author{2000013058 杨仕博}
+\date{\today}
+\begin{document}
+\maketitle
+
+\subsection{}
+
+1.
+
+$\Pi_{SNO}(\sigma_{S.CITY=Beijing\lor S.CITY = Tianjing}(SPJ\bowtie S))$
+
+2.
+
+$\Pi_{SNO}(\sigma_{S.CITY=J.CITY}(S\bowtie SPJ\bowtie J))$
+
+3.
+
+$\Pi_{SNO}(SPJ) - \Pi_{SNO}(\sigma_{S.CITY=J.CITY}(S\bowtie SPJ\bowtie J))$
+
+4.
+
+$\Pi_{SNO, JNO}(SPJ) \div \Pi_{JNO}(\sigma_{CITY = Beijing}(J))$
+
+5.
+
+$\Pi_{PNO}(P) - \Pi_{P.PNO}(\sigma_{P.PRICE < Q.PRICE}(P\times \rho_{Q}(P)))$
+
+\subsection{}
+
+1.
+
+$\Pi_{SC1.sno}(\sigma_{SC1.sno = SC2.sno}(\rho_{SC1}(\sigma_{cno=c1}(SC))\times \rho_{SC2}(\sigma_{cno = c2}(SC)))) - 
+\Pi_{sno}(\sigma_{sno\neq c1\land sno\neq c2}(SC))$
+
+2.
+
+我们记s1选择的课程表为
+
+$S1CNO \leftarrow \Pi_{cno}(\sigma_{sno = s1}(SC))$，
+
+s1没有选择的课程表为
+
+$LEFT \leftarrow \Pi_{cno}(SC) - S1CNO$
+
+原问题所求为
+
+$\Pi_{sno, cno}(SC)\div S1CNO - \Pi_{SC.sno}(SC^{\bowtie}_{SC.cno = LEFT.cno} LEFT)$
+
+3.
+
+$S1CNO$定义同上题，原问题所求为
+
+$\Pi_{sno}(SC) - \Pi_{sno}(SC^{\bowtie}_{SC.cno = S1CNO.cno} S1CNO)$
+
+\subsection{}
+
+\[
+\begin{aligned}
+    &\sigma_{\theta_1}(\sigma_{\theta_2}(R))\\
+    = &\sigma_{\theta_1}(\{t | t\in R, \theta_2(T) = True\})\\
+    = &\{t' | t'\in \{t | t\in R, \theta_2(T) = True\}, \theta_1(t') = True\}\\
+    = &\{t | t\in R, \theta_1(t) = True\land \theta_2(t) = True\}
+\end{aligned}
+\]
+
+同理，$\sigma_{\theta_2}(\sigma_{\theta_1}(R)) = \{t | t\in R, \theta_1(t) = True\land \theta_2(t) = True\}$
+
+因而$\sigma_{\theta_1}(\sigma_{\theta_2}(R)) = \sigma_{\theta_2}(\sigma_{\theta_1}(R))$
+
+\subsection{}
+
+(1)
+
+记$C1CNO$为c1的课程号，$C2CNO$为c2的课程号。
+
+元组关系验算：
+
+$\{t | \exists w_1, w_2\in SC(w_1[cno] = C1CNO\land w_2[cno] = C2CNO\land w_1[sno] = t[sno]\land w_2[sno] = t[sno])\}$
+
+域关系验算：
+
+$\{<a> | \exists g_1, g_2(<a, C1CNO, g_1>\in SC\land <a, C2CNO, g_2>\in SC)\}$
+
+(2)
+
+记$S1SNO$为s1同学的学号，$C1CNO$为c1的课程号。
+
+元组关系验算：
+
+$\{t | \exists w_0\in SC, \exists w\in SC(w[sno] = t[sno]\land w_0[sno] = S1SNO\land w[cno] = C1CNO\land w_0[cno] = C1CNO\land w[grade] > w_0[grade])\}$
+
+域关系验算：
+
+$\{<a> | \exists c_1, c_2(<a, C1CNO, c_1>\in SC, <S1SNO, C1CNO, c_2>\in SC, c_1 > c_2)\}$
+
+\subsection{}
+
+$\sigma_{R.A = S.A\land R.B\neq S.B}(R\times \rho_S(R)) = \Phi$
+
+$\sigma_{R.A = S.A\land (R.B\neq S.B\lor R.C\neq S.C)}(R\times \rho_S(R)) = \Phi$
+
+\end{document}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+
+</head>
+<body >
+    <div id="fdd71a70d66a48eb88af17a376b17aed" class="chart-container" style="width:900px; height:500px; "></div>
+    <script>
+        var chart_fdd71a70d66a48eb88af17a376b17aed = echarts.init(
+            document.getElementById('fdd71a70d66a48eb88af17a376b17aed'), 'white', {renderer: 'canvas'});
+        var option_fdd71a70d66a48eb88af17a376b17aed = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "color": [
+        "#5470c6",
+        "#91cc75",
+        "#fac858",
+        "#ee6666",
+        "#73c0de",
+        "#3ba272",
+        "#fc8452",
+        "#9a60b4",
+        "#ea7ccc"
+    ],
+    "series": [
+        {
+            "type": "graph",
+            "layout": "force",
+            "symbolSize": 10,
+            "circular": {
+                "rotateLabel": false
+            },
+            "force": {
+                "repulsion": 1000,
+                "gravity": 0.2,
+                "edgeLength": [
+                    10,
+                    100
+                ],
+                "friction": 0.6,
+                "layoutAnimation": true
+            },
+            "label": {
+                "show": true,
+                "margin": 8
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 1,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "roam": true,
+            "draggable": false,
+            "focusNodeAdjacency": true,
+            "data": [
+                {
+                    "name": "\u70b91",
+                    "fixed": false,
+                    "value": 30,
+                    "category": 1,
+                    "symbolSize": 30
+                },
+                {
+                    "name": "\u70b92",
+                    "fixed": false,
+                    "value": 10,
+                    "category": 2,
+                    "symbolSize": 10
+                },
+                {
+                    "name": "\u70b93",
+                    "fixed": false,
+                    "value": 10,
+                    "category": 2,
+                    "symbolSize": 10
+                },
+                {
+                    "name": "\u70b94",
+                    "fixed": false,
+                    "value": 30,
+                    "category": 2,
+                    "symbolSize": 30
+                },
+                {
+                    "name": "\u70b95",
+                    "fixed": false,
+                    "value": 50,
+                    "category": 3,
+                    "symbolSize": 50
+                }
+            ],
+            "categories": [
+                {},
+                {
+                    "name": "\u7c7b1"
+                },
+                {
+                    "name": "\u7c7b2"
+                },
+                {
+                    "name": "\u7c7b3"
+                }
+            ],
+            "edgeLabel": {
+                "show": false,
+                "margin": 8
+            },
+            "edgeSymbol": [
+                null,
+                null
+            ],
+            "edgeSymbolSize": 10,
+            "links": [
+                {
+                    "source": "\u70b91",
+                    "target": "\u70b95",
+                    "value": 20000
+                },
+                {
+                    "source": "\u70b92",
+                    "target": "\u70b95",
+                    "value": 10000
+                },
+                {
+                    "source": "\u70b93",
+                    "target": "\u70b95",
+                    "value": 5000
+                },
+                {
+                    "source": "\u70b94",
+                    "target": "\u70b95",
+                    "value": 1000
+                }
+            ]
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "",
+                "\u7c7b1",
+                "\u7c7b2",
+                "\u7c7b3"
+            ],
+            "selected": {
+                "": true,
+                "\u7c7b1": true,
+                "\u7c7b2": true,
+                "\u7c7b3": true
+            },
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "title": [
+        {
+            "show": true,
+            "text": "\u5173\u7cfb\u56fe-\u5206\u7c7b-\u793a\u4f8b",
+            "target": "blank",
+            "subtarget": "blank",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ]
+};
+        chart_fdd71a70d66a48eb88af17a376b17aed.setOption(option_fdd71a70d66a48eb88af17a376b17aed);
+    </script>
+</body>
+</html>

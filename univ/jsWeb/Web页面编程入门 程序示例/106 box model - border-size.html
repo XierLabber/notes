@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8"/>
+        <title>元素尺寸的两种计算方式</title>
+        <style type="text/css">
+            .box {
+                margin: 10px auto;
+                padding: 30px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: hotpink;
+                width: 350px;
+                height: 100px;
+                background-color: cornflowerblue;
+                color: cornsilk;
+                text-align: center;
+            }
+            .alter {
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">我的宽度和高度不包含内边距和边框</div>
+        <div class="box alter">我的宽度和高度包含了内边距和边框</div>
+    </body>
+</html>
+

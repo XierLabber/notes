@@ -1,0 +1,140 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{forest}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\title{\vspace{-4cm}2023代组第三次作业}
+\author{2000013058 杨仕博}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section*{半群与独异点}
+
+\subsection*{11}
+
+记$V/\sim =<A/\sim, \bigotimes >$，则
+
+\begin{tabular}{ccc}
+    \hline
+    $\bigotimes$ & [a] & [b]\\
+    \hline
+    [a] & [a] & [b]\\
+    \hline
+    [b] & [b] & [a]\\
+    \hline
+\end{tabular}
+
+\subsection*{12}
+
+(1)
+
+首先，我们证明R是等价关系：
+
+这是因为，$x = x\Rightarrow xRx$(自反性)
+
+$xRy\Rightarrow x = y\lor (x\in I\land y\in I)
+\Rightarrow y = x\lor (y\in I\land x\in I)
+\Rightarrow yRx$(对称性)
+
+$xRy, yRz\Rightarrow (x = y\land y = z)\lor
+(x\in I\land y\in I\land y = z)\lor
+(x = y\land y\in I\land z\in I)\lor
+(x \in I\land y\in I\land z\in I)
+\Rightarrow
+(x = z)\lor
+(x\in I\land z\in I)\lor
+(x\in I\land z\in I)\lor
+(x\in I\land z\in I)\lor
+\Rightarrow
+xRz$(传递性)
+
+其次，若$xRy, sRt$：
+
+若$x = y \land s = t$，则
+$x\circ s = y\circ t\Rightarrow (x\circ s)R(y\circ t)$
+
+若$x = y\land s\in I\land t\in I$，则
+$x\circ s\in IS\Rightarrow x\circ s\in I$，
+同理$y\circ t\in I$，故$(x\circ s)R(y\circ t)$
+
+同理，若$s = t\land x\in I\land y\in I$，则
+$(x\circ s)R(y\circ t)$
+
+若$s\in I\land t\in I\land x\in I\land y\in I$，
+同上有$x\circ s\in I, y\circ t\in I$，
+$(x\circ s)R(y\circ t)$
+
+故R是V上的同余关系
+
+(2)
+
+由$[x] = [y]\Leftrightarrow xRy\Leftrightarrow x = y
+\lor(x\in I\land y\in I)$知
+$S/R = \{I\}\bigcup \{\{x\} | x\notin I\}$
+
+对于$x\in S-I, y\in S-I, \{x\}\bar\circ \{y\} = \{x\circ y\}$，
+其他情况下$\{x\}\bar \circ \{y\} = I$
+
+\section*{群}
+
+\subsection*{2}
+
+这个代数系统：
+
+非空：由于G非空，因而G关于$\circ$构成的代数系统非空
+
+封闭：$\forall a, b\in G, a\circ b = au^{-1}b\in G$
+
+满足结合律：$\forall a, b, c\in G, a\circ (b\circ c) = 
+au^{-1}(bu^{-1}c) = au^{-1}bu^{-1}c = a\circ b\circ c$
+
+单位元存在：$u\in G, \forall a\in G, a\circ u = au^{-1}u = a, 
+u\circ a = uu^{-1}a = a$
+
+逆元存在：$\forall a\in G, a\circ (ua^{-1}u) = au^{-1}ua^{-1}u = u, 
+(ua^{-1}u)\circ a = (ua^{-1}u)u^{-1}a = u$
+
+因而是群
+
+\subsection*{6}
+
+\[
+\begin{aligned}
+    &(ab)^2 = abab = aabb\\
+    \Rightarrow &a^{-1}ababb^{-1} = a^{-1}aabbb^{-1}\\
+    \Rightarrow &ba = ab
+\end{aligned}
+\]
+
+\subsection*{9(2)}
+
+\[
+\begin{aligned}
+    &(ab)^r = e\\
+    \Rightarrow &a(ba)^{r-1}b = e\\
+    \Rightarrow &(ba)^{r-1} = a^{-1}b^{-1} = (ba)^{-1}\\
+    \Rightarrow &(ba)^r = e
+\end{aligned}    
+\]
+
+因此，$|ba|\Big| |ab|$，
+同理，$|ab|\Big| |ba|$，因此，$|ab| = |ba|$
+
+\subsection*{9(3)}
+
+由上题，
+
+$|abc| = |a(bc)| = |bca| = |b(ca)| = |cab|$
+
+\subsection*{11}
+
+首先我们断言：G中存在不为e的元素——否则，G中只有e一个
+元素，G是交换群，矛盾！
+
+任取G中不为e的元素a，那么$a^2\neq a$(否则，$a = e$)，
+这样，令$b = a^2\neq a$，有$ab = aaa = a^2a = ba$
+
+\end{document}

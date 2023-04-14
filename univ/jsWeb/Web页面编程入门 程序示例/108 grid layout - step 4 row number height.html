@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8"/>
+        <title>网格布局 设置行数和行高</title>
+        <style type="text/css">
+            body {
+                width: 90%;
+                max-width: 900px;
+                margin: 10px auto
+            }
+            .container > div {
+                box-sizing: border-box;
+                padding: 10px;
+                background-color: #3333FF;
+                border-radius: 5px;
+                border: 2px solid hotpink;
+                color: yellow;
+                text-align: center;
+            }
+            .container {
+                display: grid;
+                grid-template-columns: 1fr 2fr 3fr;
+                grid-template-rows: 3fr 2fr 1fr;
+                gap: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div>A</div> <div>B</div>
+            <div>C</div> <div>D</div>
+            <div>E</div> <div>F</div>
+            <div>G</div>    
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,284 @@
+### HTML语言入门
+- DOM：⼀棵由⼀组HTML元素构成的树
+- 元素名
+- 属性
+  - id：为⼀个元素 设置⽂档范围内唯⼀的标识符
+  - class：为具有某种共性的⼀类元素 设置⼀个相同的标识符
+- 基本框架
+  - 根元素：总是一个html元素，且仅有一个html元素
+  - html元素通常都会包含⼀个head元素和⼀个body元素
+- 内容元素
+  - 段落p
+  - 有序列ol，无序列ul，表项li
+  - 超链接a(href (+ title))
+  - 内容分组元素div
+  - 表格table   
+    - caption：标题
+    - td：table data，表示一个单元格
+      - colspan="2"：向右扩展成两列
+      - rowspan="4"：向下扩展成4⾏
+    - tr：table row
+    - th：一个行/列标题
+  - 表单form
+  - label for="某id"
+  - input
+    - type
+      - text
+        - list：提供输入建议
+      - email
+      - password
+      - search
+      - url
+      - checkbox
+      - radio
+        - name, id, value
+      - number
+        - min, max, step(输入为字符串)
+      - range
+        - min, max, step(输入为字符串)
+      - date
+      - color
+  - select
+    - option
+    - optgroup
+  - textarea：多行文本控制插件
+    - cols
+    - rows
+  - button type="button"
+- 转义符号
+  - &字符名称;
+  - &#字符编号;
+
+### css语言入门
+- 样式表
+  - 内连
+    - style="..."
+  - 嵌入
+    - <style> ... </style>
+  - 链接
+    - <link href="... .css"/>
+- 样式规则 = 选择器 + 声明器
+  - 选择器
+    - *
+    - 元素
+    - class
+    - id
+  - 块级元素 / 行内元素
+    - display:block; / display:inline;
+- 盒模型
+  - 内容(content) - 内边距区域(padding) - 外框(bordor) - 外边距区域(margin)
+- 网格布局
+  - display：grid
+  - grid-template-columns: Xfr Xfr...;(可以使用repeat, minmax)函数
+  - grid-auto-rows: 100px;
+  - 每部分可以通过grid-column / grid-row设置自己所在区域
+  - 总部分可以通过grid-template-areas + 各部分的grid-area设置每块的区域
+- 文字环绕图片
+  - 父元素：display: flow-root;
+  - 子元素：float: left;
+
+### 初见JavaScript
+- 基本程序
+  - ` <script src="XX.js" defer>`
+  - let h1 = document.createElement("h1");
+  - h1.textContent = "Web世界，你好！";
+  - document.body.appendChild(h1);
+- 监听鼠标
+  - querySelector ⽅法
+    - 接收⼀个字符串，字符串的内容是⼀个CSS选择器
+    - 返回 当前HTML元素的所有后代元素中满⾜这个CSS选择器的第⼀个HTML元素
+    - let div = document.querySelector("div");
+    - div.onclick = function() {}
+      - on + 事件名
+    - getAttribute("属性名")
+    - setAttribute("属性名", 属性内容)
+
+### 深入理解JavaScript
+- 运行
+  - node "XX.js"
+- 变量-引用->值-具有->类型
+  - 变量没有类型
+- 八种类型
+  - primitive type
+    - 所有原⼦类型的值⼀旦被声明后（占据了⼀⽚内存区域）那么，在这个值的⽣命周期内它都不会发⽣变化（对应内存区域中的信息不会变化）    
+    - undefined
+      - typeof 未定义值;
+        - undefined
+    - null
+      - typeof null
+        - 'object'
+    - boolean
+    - number
+      - 5E10
+      - toExponential(): 转化为以指数形式表示的字符串
+      - toFixed()
+        - 控制⼩数点后数字的位数
+      - toPrecision()
+        - 控制有效数字的个数
+      - 二进制0b, 八进制0o, 16进制0x
+      - 数值判断相等：Math.abs(a - b) < Number.EPSILON
+      - NaN
+        - 10 / undefined 为 NaN
+        - typeof NaN -> 'number'
+        - NaN不与任何值相等; 包括与它⾃⼰相⽐
+        - 在⼋种类型的所有值中，NaN是 唯⼀⼀个 与⾃身不相等的值
+      - Infinity
+        - 与Number.MAX_VALUE不同，且出现的值会被存储为表示范围内最靠近的⼀个数
+        - Number.POSITIVE_INFINITY
+        - Number.NEGATIVE_INFINITY
+      - +0, -0
+        - 1/+0 === Infinity
+        - 1/-0 === -Infinity
+      - Object.is ⽅法从编码值的⻆度判断两个数值是否相等
+      - Number.isInteger ⽅法判断⼀个数值是否为整数
+      - Number.isSafeInteger ⽅法判断⼀个数值是否是⼀个肯定会被精确存储的整数
+        - Number.MAX/MIN_SAFE_INTEGER
+    - bigint
+      - 存放任意精度的整数
+      - 按需占⽤存储空间
+      - 在合法的number整数值（不带⼩数点）后加英⽂字⺟n
+      - BigInt函数 可以把其他类型的值转换为bigint值
+      - bigint值 和 number值 不能混合参与 到 基本算术运算中 但 可以混合参与 到 关系运算中
+    - string
+      - concat
+      - indexOf
+      - charAt(=[])
+      - toUpperCase
+      - string 类型：模版字符串
+        - 模版字符串的前后要⽤字符 ` 括起来
+        - 换⾏符 不需要 使⽤转义符的⽅式表达直接敲⼊回⻋符号即可
+        - 可以在字符串中 嵌⼊表达式\$\{\}
+    - symbol
+      - symbol类型的值 不存在 字⾯量（literal） 表示⽅式
+      - symbol类型的值 只能通过调⽤⼀个构造函数 Symbol 形成
+        - Symbol接收⼀个字符串参数，表示对创建的symbol值的⼀段⽂字描述（可选）
+      - 对构造函数Symbol的两次调⽤ 不可能返回 两个 相同的值
+      - ES提供了⼀个全局的symbol值注册库
+        - let mys = Symbol.for("description");
+      - ES还定义并共享了⼀组well-known symbols
+        - 基于这些symbol值可以对JS运⾏时的某些⾏为进⾏定制
+  - non-primitive type
+    - object
+      - 一个object包含 0或多 个 property
+        - 一个property具有 ⼀个key 和 ⼀个value
+          - key：只有且任何string或symbol类型的值 可以作为key
+        - 除了key和value之外，⼀个property中还包含⼀些其他成分；
+      - property
+        - data property
+        - accessor property
+      - 三种创建方式
+        - object literal（对象字⾯量）
+          - 花括号
+          - .
+            - [""]
+          - delete
+          - key: string
+          - 以symbol作为key：
+            - `[priv]: "..."`
+            - `obj[priv]`
+          - 语法糖：
+            - name="xiaoming";
+            - let obj = { name };
+          - 访问不存在的property
+            - 返回undefined
+        - function（函数）
+          - `function createPerson(name, age){
+               return { name, age };
+              }`
+          - Object：作为function被调⽤时，返回值是object
+            - let o = Object(val)
+              - val不为 null / undefined / object 时把⼀个primitive类型的值封装在⼀个object中，并返回该object。在返回的object上，可以通过valueOf⽅法获得被封装的那个值
+          - let obj = Object.create(proto)
+            - proto不是 object 或者 null 时：throw a TypeError exception
+            - 否则，返回⼀个object值，记为obj
+              - obj的 原型（prototype）是 proto
+        - constructor（构造函数）
+          - let obj = new Object();
+            - Object仅仅是⼀个特定的constructor
+          - ⼀个function，如果可以作为⼀个constructor那么，为了触发这个constructor需要在调⽤这个function时，在前⾯加new
+          - Object 是⼀个全局变量，指向⼀个object，记为 %Object%
+            - %Object% 也是⼀个function；同时，也是⼀个constructor
+      - accessor property
+        - 访问器属性不包含数据值，包含一对getter和setter方法（但不是必须的），读取accessor property，调用getter(get 变量名())方法，写入时，调用setter(set 变量名(v))方法
+          - setter方法可以检查变量是否合法以抛出错误
+- JS中值的另⼀种分类⽅式
+  - falsy value（类似假的值）
+  - truthy value 
+  - 当需要把⼀个值转换成⼀个boolean值时falsy value 总是被转换为 false；truthy value 总是被转换 true
+- 在JavaScript中基本数据类型都是传值赋值，复合数据类型都是引用赋值(传地址)也叫引用传址
+- ⼀些 built-in objects
+  - Boolean Number String
+  - 当调⽤Boolean/Number/String时，如果没有使⽤new操作符这⼏个function实现“强制数据类型转换”的功能
+  - object是⼀种类似真的值；对其取反 会得到 假值
+  - 自动拆箱
+  - Array()
+    - Array(1)：一个长度为1点数组
+    - Array.of(1)
+    - unshift：在开头添加一个元素
+    - shift：删除开头元素
+    - splice：删去一些并返回，同时补入一些未被删去的，会改变原数组
+    - slice：返回⼀个左闭右开的区间，不改变原数组
+    - 数组是object：object适⽤的操作也适⽤于数组
+      - 可以在数组上添加⾃定义的property
+  - Function是⼀个全局变量，指向⼀个built-in object，记为%Function%
+    - function object 的两种创建⽅式
+      - function literal（函数字⾯量）
+        - 1.function declaration
+          - `function myFunc(a, b) { ... }`
+          - 通过函数声明创建的函数 在ES6之前(不能在代码块中进⾏函数声明) 只具有两种作⽤域
+            - 文件作用域：整个文件
+            - 函数作用域：函数中声明的函数只能在整个函数内部被访问
+          - 在ES6中，⼜加⼊了代码块作⽤域
+            - 假设 ⼀个通过函数声明创建的函数b，且 b直接嵌套在⼀个代码块a中，那么，在不存在同名函数屏蔽的情况下，在a内部的任何位置，都可以访问到b
+        - 2.function expression
+          - `(let myFunc = )function(a, b) { ... }`
+          - 通常 出现在赋值语句的右侧 或 作为函数的参数
+          - 与函数声明的语法区别：函数名 可选
+          - 函数表达式作为property的value时的⼀种语法糖
+            - `sayName: function(){...}`转变为`sayName(){...}`
+        - 3.arrow function
+          - 参数列表的括号 当参数数量为1时, 可选; 其他情况必需
+          - 箭头的右侧
+            - 可以是⼀个表达式（表达式的评估值即为返回值）
+            - 或者是⼀个代码快（⽤花括号包围的⼀组语句）
+      - constructor（构造函数）
+        - `let myFun = new Function("a", "b", "return a + b;");`(一般不用)
+    - 对⼀个function object使⽤typeof操作符，返回 "function"，⽽不是 "object"
+    - function是object
+      - 可以在function上添加⾃定义的property
+    - ⼀些 built-in objects
+      - globalThis
+        - globalThis是⼀个全局变量，指向⼀个built-in object，记为global object
+        - global object 不是⼀个function, 也不是⼀个constructor
+        - ES11之前 没有规定 global object的显式访问名称,但不同的JS运⾏环境对其都有⾃⼰的命名
+        - ES规范规定了Global Object必须具有的properties
+        - JS运⾏环境 ⾃动创建 global上properties的同名全局变量，让这些变量引⽤对应properties的value
+        - ⽆论在程序的什么位置，只要对⼀个未声明的变量赋了值，该赋值语句⼀旦被执⾏后，该变量⾃动变为⼀个全局变量
+          - 解决方法：`use strict`
+            - 放在函数体的第⼀句也可以; 这时, 咒语只在函数体内起作⽤
+  - Prototype
+    - 每⼀个object都关联且仅关联⼀个Prototype
+      - 这个Prototype必须是⼀个object或者null值
+      - Prototype是object的⼀种 internal state，被存放在⼀个名为 [[Prototype]] 的 internal slot 中
+        - 程序员⽆法增加/删除 internal slot，但有可能间接改变其包含的state的值
+        - object包含
+          - property
+            - property with a built-in method value
+            - property with other value
+          - internal method
+            - 由运⾏环境确定，程序员⽆法改变
+          - internal slot
+            - 程序员⽆法增加/删除 internal slot,但有可能间接改变其包含的state的值
+    - 查看prototype: `__proto__`
+    - 设置⼀个object的 [[Prototype]]
+      - 创建时关联 let obj = Object.create(proto);
+      - 创建后关联 let obj = {}; Object.setPrototypeOf(obj, proto);
+    - 原型的作用：  
+      - 调用原型的方法
+        - 发现本object没有这样的property时调用原型
+    - 基于原型的继承
+      - 对于Data property
+        - 其读取⾏为会在原型链上反向传播直到遇到了⼀个同key的property
+          - 其设置⾏为不会传播
+        - 其读取⾏为和设置⾏为全都会在原型链上反向传播，直到遇到了⼀个同key的property
+- typeof 不总是⼀个安全的操作符

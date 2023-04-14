@@ -1,0 +1,22 @@
+* {
+  font-style: italic;
+}
+
+p {
+  color:blue;
+}
+
+span {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.description {
+  background-color: yellowgreen;
+}
+
+#special {
+  background-color: hotpink;
+  text-decoration: underline;
+}
+

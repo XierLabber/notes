@@ -1,0 +1,322 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{forest}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{tabularx}
+\title{\vspace{-4cm}2023代组第一次作业}
+\author{2000013058 杨仕博}
+\date{\today}
+\begin{document}
+\maketitle
+
+\subsection*{7(2)}
+
+(1)
+
+$a, b\in Z^+ \Rightarrow \min(a, b) = a\ or\ b\in Z^+$，
+因而$\circ$是$Z^+$上的二元运算，故它构成代数系统。
+
+由$a\circ b = \min(a, b) = \min(b, a) = b\circ a$，
+$a\circ b \circ c = \min(\min(a, b), c) = \min(a, b, c)$
+$= \min(a, \min(b, c)) = a\circ (b\circ c)$，
+$a\circ a = \min(a, a) = a$知它符合交换律、结合律和幂等律
+
+(2)
+
+单位元：若b为单位元，则
+
+\[
+\begin{aligned}
+    &\forall a, a\circ b = b\circ a = a\\
+    \Leftrightarrow &\forall a, \min(a, b) = a\\
+    \Rightarrow &\min(b, b + 1) = b + 1\\
+    \Rightarrow &b \geq b + 1
+\end{aligned}    
+\]
+
+矛盾！故此时不存在单位元
+
+零元：若b为零元，则
+
+\[
+\begin{aligned}    
+    &\forall a, a\circ b = b\circ a = b\\
+    \Leftrightarrow &\forall a, \min(a, b) = b\\
+    \Leftrightarrow &\forall a, b\leq a\\
+    \Leftrightarrow b = 1
+\end{aligned}    
+\]
+
+故零元为1
+
+\subsection*{7(4)}
+
+令$a = 1, b = 2$，有$a\circ b = 0.5 + 2 = 2.5\notin Z^+$，
+因而这不是一个代数系统。
+
+\subsection*{9}
+
+(1)
+
+$x * y = x + y - xy = y + x - yx = y * x$，因而满足交换律。
+
+\[
+\begin{aligned}
+    x * y * z &= (x + y - xy) * z\\
+              &= x + y - xy + z - zx -zy + xyz
+\end{aligned}    
+\]
+
+\[
+\begin{aligned}
+    x * (y * z) &= x * (y + z - yz)\\
+                &= x + y + z - yz - xy - xz + xyz
+\end{aligned}    
+\]
+
+故$x * y * z = x * (y * z)$，因而满足结合律。
+
+令$x = 2$，有$x * x = 2 + 2 - 4 = 0 \neq 2 = x$，
+因此不满足幂等律
+
+综上，满足交换律和结合律，不满足幂等律
+
+(2)
+
+单位元：若e为单位元，则
+
+\[
+\begin{aligned}
+    &\forall a, a * e = e * a = a\\
+    \Leftrightarrow &\forall a, a + e - ae = a\\
+    \Leftrightarrow &\forall a, e(1 - a) = 0\\
+    \Leftrightarrow &e = 0
+\end{aligned}
+\]
+
+故单位元为0。
+
+零元：若z为零元，则
+
+\[
+\begin{aligned}
+    &\forall a, a * z = z * a = z\\
+    \Leftrightarrow &\forall a, a + z - az = z\\
+    \Leftrightarrow &\forall a, a(1 - z) = 0\\
+    \Leftrightarrow &z = 1
+\end{aligned}    
+\]
+
+故零元为1。
+
+逆元：若x是可逆元，y是其逆元，则
+
+\[
+\begin{aligned}
+    &x * y = y * x = 0\\
+    \Leftrightarrow & x + y - xy = 0\\
+    \Leftrightarrow & x = y(x - 1)
+\end{aligned}
+\]
+
+若$x\neq 1$，则$y = \frac{x}{x - 1}$为x的逆元。
+
+\subsection*{11}
+
+(1)
+
+交换律：
+
+$<0, 1>\circ<1, 1> = <0, 1>$，而$<1, 1>\circ<0, 1> = <0, 2>$，
+因此不满足交换律。
+
+结合律：
+
+\[
+\begin{aligned}
+    &<a, b>\circ<c, d>\circ<e, f>\\
+    =& <ac, ad + b>\circ<e, f>\\
+    =& <ace, acf + ad + b> 
+\end{aligned}    
+\]
+
+\[
+\begin{aligned}
+    &<a, b>\circ(<c, d>\circ<e, f>)\\
+    =& <a, b>\circ(<ce, cf + d>)\\
+    =& <ace, acf + ad + b>
+\end{aligned}
+\]
+
+因此满足结合律。
+
+(2)
+
+单位元：
+
+若$<e, f>$为单位元，则
+
+\[
+\begin{aligned}
+    &\forall <a, b>, <a, b> \circ <e, f> = <e, f> \circ <a, b> = <a, b>\\
+    \Leftrightarrow &\forall <a, b>, <ae, af + b> = <a, b> \land <ae, eb + f> = <a, b>\\
+    \Leftrightarrow &e = 1\land f = 0
+\end{aligned}
+\]
+
+故单位元为<1, 0>。
+
+零元：
+
+若$<y, z>$为零元，则
+
+\[
+\begin{aligned}
+    &\forall <a, b>, <a, b> \circ <y, z> = <y, z> \circ <a, b> = <y, z>\\
+    \Leftrightarrow &\forall <a, b>, <ay, az + b> = <y, z> \land <ay, by + z> = <y, z>
+\end{aligned}    
+\]
+
+令$<a, b>$分别取<0, 1>和<0, 2>，我们有<0, 1> = <y, z>且<0, 2> = <y, z>，
+矛盾！故没有零元。
+
+逆元：
+
+若$<a, b>$可逆，$<c, d>$是其逆元，有
+
+\[
+\begin{aligned}
+    &<a, b>\circ <c, d> = <ac, ad + b> = <1, 0>\\
+    \Leftrightarrow &ac = 1 \land ad + b = 0\\
+    \Leftrightarrow &a\neq 0 \land c = \frac{1}{a} \land d = -\frac{b}{a}
+\end{aligned}    
+\]
+
+故$<a, b>$有逆元当且仅当$a \neq 0$，其逆元为$<\frac{1}{a}, -\frac{b}{a}>$
+
+\subsection*{16}
+
+(1)
+
+\begin{tabularx}{\linewidth}{|X|X|X|X|X|X|X|}
+\hline
+        & <0, 0> & <0, 1> & <1, 0> & <1, 1> & <2, 0> & <2, 1>\\
+\hline
+<0, 0>  & <0, 0> & <0, 1> & <1, 0> & <1, 1> & <2, 0> & <2, 1>\\
+\hline
+<0, 1>  & <0, 1> & <0, 0> & <1, 1> & <1, 0> & <2, 1> & <2, 0>\\
+\hline
+<1, 0>  & <1, 0> & <1, 1> & <2, 0> & <2, 1> & <0, 0> & <0, 1>\\
+\hline
+<1, 1>  & <1, 1> & <1, 0> & <2, 1> & <2, 0> & <0, 1> & <0, 0>\\
+\hline
+<2, 0>  & <2, 0> & <2, 1> & <0, 0> & <0, 1> & <1, 0> & <1, 1>\\
+\hline
+<2, 1>  & <2, 1> & <2, 0> & <0, 1> & <0, 0> & <1, 1> & <1, 0>\\
+\hline
+\end{tabularx}
+
+(2)
+
+单位元：
+
+若$<a, b>$是单位元，则
+
+\[
+\begin{aligned}
+    &\forall <x, y>, <a, b> \oplus <x, y> = <x, y> \oplus <a, b> = <x, y>\\
+    \Leftrightarrow &(x + a)\% 3 = x\land (y + b)\%2 = y\\
+    \Leftrightarrow &<a, b> = <0, 0>
+\end{aligned}    
+\]
+
+故单位元为<0, 0>
+
+逆元：
+
+若$<a, b>$可逆，其逆元为$<c, d>$，则
+
+\[
+\begin{aligned}
+    &<a, b> + <c, d> = <0, 0>\\
+    \Leftrightarrow &<c, d> = <3 - a, 2 - b>
+\end{aligned}    
+\]
+
+故所有元素都可逆，且$<a, b>$的逆元是$<3 - a, 2 - b>$
+
+\subsection*{18}
+
+我们构造如下映射：$f(c) = \begin{pmatrix}
+    a & b\\
+    -b & a
+\end{pmatrix}$，其中，$c = a + bi$
+
+首先，我们证明f是同态映射：
+
+对复数$x = a + bi, y = c + di (a, b, c, d\in R)$，
+$f(x + y) = f((a + c) + (b + d)i) = \begin{pmatrix}
+    a + c & b + d\\
+    -(b + d) & (a + c)
+\end{pmatrix} = \begin{pmatrix}
+    a & b\\
+    -b & a
+\end{pmatrix} + \begin{pmatrix}
+    c & d\\
+    -d & c
+\end{pmatrix} = f(x) + f(y)$
+
+$f(x)\cdot f(y) = \begin{pmatrix}
+    a & b\\
+    -b & a
+\end{pmatrix}\cdot \begin{pmatrix}
+    c & d\\
+    -d & c
+\end{pmatrix} = \begin{pmatrix}
+    ac-bd & ad+bc\\
+    -(ad+bc) & ac-bd
+\end{pmatrix} = f(ac-bd + (ad + bc)i) = 
+f((a + bi)\cdot (c + di)) = f(xy)$
+
+因此，f是同态映射。
+
+接下来，我们证明f是双射。
+
+对任意$Y = \begin{pmatrix}
+    a & b\\
+    -b & a
+\end{pmatrix}\in B$，$f(a+bi) = Y$，因而f是满射；
+
+对任意$x, y\in C$，若$f(x) = f(y)$，则$Re(x) = Re(y)\land
+Im(x) = Im(y)$，从而$x = y$，因而f是单射。
+
+故f是双射，从而是同构映射。
+
+因而$V_1$同构于$V_2$
+
+\subsection*{24(2)}
+
+这是同态，因为对$x, y\in C, f(xy) = |xy| = |x||y| = f(x)f(y)$
+
+对任意实数$x\geq 0, \phi(x) = x$，而对任意$x\in C, \phi(x) \geq 0$，
+因而同态像是$\{0\}\bigcup R^+$
+
+\subsection*{24(4)}
+
+$\phi$不是同态，因为$\phi(1\cdot 1) = \phi(1) = 2, 
+phi(1)\cdot \phi(1) = 4$
+
+\subsection*{27(2)}
+
+不是。这不是一个等价关系，$|1 - 5| < 5\Rightarrow 1R5, 
+|5 - 9| < 5\Rightarrow 5R9$，但是$|1 - 9| > 5$，即这
+个二元关系不具备传递性，继而不是等价关系
+
+\subsection*{27(4)}
+
+不是。这不是一个等价关系，$5\geq 4\Rightarrow 5R4$，但是$4<5$，
+$4R5$不成立，
+因而这个而元关系不对称，继而不是等价关系
+
+\end{document}

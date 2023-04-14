@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8"/>
+        <title>猜数字游戏</title>
+        <style type="text/css">
+            body {
+                width: 50%;
+                max-width: 600px;
+                min-width: 400px;
+                margin: 0 auto;
+                padding: 5px;
+            }
+            .lastResult {
+                color: white;
+                padding: 3px;
+      }
+        </style>
+        <script src="js/203.js" defer> </script>
+    </head>
+    <body>
+        <h1>猜数字游戏</h1>
+        <p>我刚才随机选定了一个100以内的自然数。</p>
+        <p>看你能否在 10 次以内猜中它。</p>
+        <p>每次我都会告诉你所猜的结果是高了还是低了。</p>
+
+        <!-- 声明一个div元素，用于封装用户输入相关的控件 -->
+        <div class="form">
+            <!-- 声明一个让用户输入数字的input控件 -->
+            <label for="guessField">请猜数：</label>
+            <input type="number" min="1" max="100" step="1"  
+                   id="guessField" class="guessField">
+            <!-- 声明一个button控件，让用户提交输入的数字 -->
+            <button type="button" class="guessSubmit">我猜</button>
+        </div>
+
+        <!-- 声明一个div元素，用于封装对用户的提示信息 -->
+        <div class="resultParas">
+            <!-- 声明一个p元素，显示用户的历史猜数信息 -->
+            <p class="guesses"></p>
+            <!-- 声明一个p元素，告诉用户当前猜数的对错 -->
+            <p class="lastResult"></p>
+            <!-- 声明一个p元素，告诉用户当前猜数是高了还是低了 -->
+            <p class="lowerOrHigher"></p>
+        </div>
+    </body>
+</html>
+

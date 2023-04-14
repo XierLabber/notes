@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8"/>
+        <title>把元素放置在网格上 基于线的放置</title>
+        <style type="text/css">
+            body {
+                width: 90%;
+                max-width: 900px;
+                margin: 10px auto
+            }
+            .container {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                gap: 20px;
+            }
+            header, footer {
+                border-radius: 5px;
+                padding: 10px;
+                background-color: rgb(207,232,220);
+                border: 2px solid rgb(79,185,227);
+            }
+            aside {
+                border-right: 1px solid #999;
+            }
+            header {
+                grid-column: 1 / 3;
+                grid-row: 1;
+            }
+            article {
+                grid-column: 2;
+                grid-row: 2;
+            }
+            aside {
+                grid-column: 1;
+                grid-row: 2;
+            }
+            footer {
+                grid-column: 1 / 3;
+                grid-row: 3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>这个我的blog页面</header>
+            <article>
+                <h1>我的回忆</h1>
+                <p>时光荏苒，岁月如流水般从身旁偷偷溜过，转眼间四年大学时光即将画上一个句号，说不上完美，也说不上遗憾。经过岁月的洗礼，经历着从大一刚进学校的青涩懵懂、激情四射、精力饱满到大四的成熟稳重、泰然处事。每一个不经意间的一个瞬间，让我逐渐成长起来。</p>
+                <p>还记得大一踏入校园的一瞬间，自己内心复杂的感情，说不清是好奇、欣喜还是淡淡的恐惧。想想以后就要一个人在这个陌生的地方待四年，这里没有父母，没有以前的朋友，一切都要重新开始，心里最多的还是那一丝焦虑。还没有时间认真思考自己该如何适应这样一个新的环境，紧张的军训生活已经充斥了整个生活。没有人会问你你喜欢干什么，你想干什么，每天都是简单的重复着几乎一样的生活，偶尔会有一些意外的小惊喜出现。军训的疲惫还没有从身上消失，紧张的大学课程又重重的压了下来，本来所有对大学的美好憧憬随着大学脚步的渐渐前进，一点点在消失...</p>
+            </article>
+            <aside>
+                <h2>其他情况</h2>
+                <p>这是一个娑婆世界，娑婆即遗憾。没有遗憾，给你再多幸福，你也体会不到快乐。</p>
+            </aside>
+            <footer>我的联系方式 test@stu.pku.edu.cn</footer>
+        </div>
+    </body>
+</html>
+

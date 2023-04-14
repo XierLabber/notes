@@ -1,0 +1,128 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{forest}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\title{\vspace{-4cm}2023代组第七次作业}
+\author{2000013058 杨仕博}
+\date{\today}
+\begin{document}
+\maketitle
+
+\subsection*{53}
+
+由于$|\phi(H)|\Big||H|$(因为$\phi(H)$同构于H的某个商群)，
+
+$|\phi(H)|\Big||G_2|$(因为$\phi(H)$是$G_2$的子群)，
+
+故$|\phi(H)|\Big|(|H|, |G_2|)\Rightarrow |\phi(H)| = 1\Rightarrow \phi(H) = \{e_2\}$(其中$e_2$是$G_2$中的单位元)
+
+故$H\subseteq ker(\phi)$
+
+\subsection*{61}
+
+首先，若$\phi$是自同构，那么$\forall x, y \in G, xy = \phi(x^{-1})\phi(y^{-1}) = \phi(x^{-1}y^{-1}) = yx$，
+故G是交换群
+
+其次，若G是交换群，那么，
+
+$\forall x, y\in G, \phi(x) = \phi(y)\Rightarrow x^{-1} = y^{-1}\Rightarrow x = y$，故$\phi$是单射
+
+$\forall x\in G, \phi(x^{-1}) = x$，故$\phi$是满射，
+
+$\forall x, y\in G, \phi(xy) = y^{-1}x^{-1} = x^{-1}y^{-1} = \phi(x)\phi(y)$，故$\phi$是自同态，
+
+因而，$\phi$是自同构
+
+\subsection*{62}
+
+(1)
+
+记$I = \{0, 1, ..., n-1\}$
+
+$\forall i, j\in I, \phi_t(a^ia^j) = a^{t(i + j)} = a^{ti}a^{tj} = \phi_t(a^i)\phi_t(a_j)$
+
+故$\phi_t$是G的自同态
+
+(2)
+
+若$\phi_t$是自同构，那么$\exists i\in I, s.t.\ \phi(a^i) = a\Rightarrow \exists i\in I, s.t.\ it\mod n = 1\Rightarrow (n, t) = 1$
+
+若$(n, t) = 1$，由裴蜀定理，$\exists i_0\in I, s.t.\ i_0t\mod n = 1$
+
+因为$\forall i, j\in I, \phi_t(a^i) = \phi_t(a^j)\Leftrightarrow a^{it} = a^{jt}\Leftrightarrow it\equiv jt(\mod n)\Leftrightarrow ii_0t\equiv ji_0t(\mod n)\Leftrightarrow j\equiv i(\mod n)\Leftrightarrow a^i = a^j$，
+故$\phi_t$为单射
+
+又因为$\forall i\in I, \phi_t(a^{ii_0}) = a^{ii_0t} = a^i$，故$\phi_t$为满射。
+
+因此，$\phi_t$是自同构。
+
+\subsection*{68}
+
+考察如下函数：
+
+$f:G\rightarrow G/H\times G/K, \forall x\in G, $
+$f(x) = (xH, xK)$
+
+我们证明这是一个单射+同态映射，这样，G即和$f(G)$($G/H\times G/K$的子群)
+同构。
+
+由于$\forall x, y\in G, f(x) = f(y)\Rightarrow (xH, xK) = (yH, yK)\Rightarrow y^{-1}x\in H\land y^{-1}x\in K\Rightarrow y^{-1}x\in H\bigcap K\Rightarrow y^{-1}x = e\Rightarrow x = y$，
+因而f是单射
+
+又$\forall x, y\in G, f(xy) = (xyH, xyK) = (xH, xK)\times (yH, yK) = f(x)f(y)$
+因而f是同态映射
+
+故命题得证。
+
+\subsection*{5}
+
+我们先证明(2):
+
+$a + a = a + a + a + a +(-a) +(-a) = a^2 + aa + aa + a^2 +(-a) +(-a) = (a + a)^2 +(-a) +(-a) = a + a +(-a) +(-a) = 0$
+
+接下来我们证明(1):
+
+$x + y = (x + y)^2 = x^2 + xy + yx + y^2 = x + xy + yx + y\Rightarrow xy + yx = 0$
+
+又$xy + xy = 0$，故$xy = yx$
+
+最后我们证明(3):
+
+反设R是整环，由于$|R| > 3$，R中必然有和零元与幺元不同的元素，设为x，
+由上有$x(x - 1) = x^2 - x = x - x = 0$，故$x = 0\lor x - 1 = 0\Rightarrow x = 0\lor x = 1$，与x不为零元或幺元矛盾
+
+故命题得证
+
+\subsection*{7}
+
+(1)
+
+由于n不是素数，可以设$n = pq, p\neq 1\land q\neq 1$，这样$1 < p, q < n$，又$pq = qp = 0$，故而$Z_n$中有零因子
+
+(2)
+
+若$(r, n) = d\neq 1$，则$r\times (n / d) = n\times (r / d) = 0, (n / d)\times r = 0$，故r为零因子
+
+故r不是零因子$\Rightarrow (r, n) = 1$
+
+若$(r, n) = 1$，由裴蜀定理知$\exists s\in Z, s.t.\ rs\equiv 1(\mod n)$，
+若此时有$\exists t\in Z, s.t.\ rt = 0$，则$t = srt = 0$，故r不为左零因子，同理r
+不为右零因子，故r不为零因子
+
+命题得证
+
+(3)
+
+由(2)，$Z_{18}$中的全部零因子为$2, 3, 4, 6, 8, 9, 10, 12, 14, 15, 16$
+
+\subsection*{12}
+
+首先证明n为素数。若n不为素数，则可设$n = pq, p, q\neq 1$，有$0 = ne = (pe)(qe)$，与F没有零因子矛盾！
+
+之后，由于$\forall s\in\{1, 2, ..., n - 1\} C_n^s = (n / s) C_{n - 1}^{s - 1}$，该式展开分母中没有n的倍数(因为所有数都比n小)，分子中有n，
+故$n|C_n^s$，故$(a + b)^n = \sum\limits_{i = 0}^n C_n^i a^i b^{n - i} = a^n + b^n$
+
+\end{document}

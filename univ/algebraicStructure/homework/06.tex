@@ -1,0 +1,115 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{forest}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\title{\vspace{-4cm}2023代组第六次作业}
+\author{2000013058 杨仕博}
+\date{\today}
+\begin{document}
+\maketitle
+
+\subsection*{38}
+
+(1)
+
+$G = \{e, a, a^2, a^3\}$
+
+$\forall x\in G,\ assume\ x = a^j, \forall i\in Z, a^ixa^{-i} = a^{i+j-i} = a^j = x\Rightarrow$
+G的所有共轭类为$\{e\}, \{a\}, \{a^2\}, \{a^3\}$
+
+(2)
+
+设$G = \{e, a, b, c\}$
+
+$\bar{e} = \{e\}$
+
+$\bar{a} = \{eae, aaa, bab, cac\} = \{a, a, a, a\} = \{a\}$
+
+同理$\bar{b} = \{b\}, \bar{c} = \{c\}$
+
+G的所有共轭类为$\{e\}, \{a\}, \{b\}, \{c\}$
+
+\subsection*{41}
+
+$k = |\bar{a}| = [G: N(a)] = |G| / |N(a)| \Rightarrow|N(a)| = n/k$
+
+又$C\leq N(a)\Rightarrow c \Big| |N(a)|\Rightarrow c\Big| n / k\Rightarrow k\Big| n / c$
+
+\subsection*{42}
+
+设$G = <a>$为循环群，其任意子群必然形如$<a^i>$
+
+对任意$x\in G, y\in <a^i>,\ assume x = a^j, y = a^{is}, xyx^{-1} = a^ja^{is}a^{-j} = a^{j + is - j} = a^{is} = y \in <a^i>$，
+
+故$<a^i>$为正规子群
+
+\subsection*{46}
+
+(1)
+
+首先证明H是G的子群，明显I在H中，故而H非空：$\forall A\in H, B\in H, |AB^{-1}| = \frac{|A|}{|B|} > 0\Rightarrow AB^{-1}\in H$
+
+其次证明H的正规性：$\forall X\in G, A\in H, |X|\neq 0, |XAX^{-1}| = \frac{|X||A|}{|X|} = |A|\Rightarrow XAX^{-1}\in H$
+
+故H是G的正规子群
+
+(2)
+
+$\forall A, B\in G, AH = BH\Leftrightarrow BA^{-1}\in H\Leftrightarrow \frac{|B|}{|A|} > 0\Leftrightarrow Sgn(|B|) = Sgn(|A|)$
+
+又$\forall A\in G, |A| > 0\lor |A| < 0$，故$[G:H] = 2$
+
+\subsection*{47}
+
+(1)
+
+$\forall A, B\in M_n(Q), \phi(A)\phi(B) = |A||B| = |AB| = \phi(AB)$
+
+故$\phi$是同态映射
+
+(2)
+
+$\forall A\in G_1, \phi(A) = |A|\in Q^*\Rightarrow \phi(G_1)\subseteq Q^*$
+
+$\forall x\in Q^+, |diag\{x, I_{n-1}\}| = x, |diag\{-x, I_{n-1}\}| = -x\Rightarrow Q^*\subseteq \phi(G_1)$
+
+故$\phi(G_1) = Q^*$
+
+$A\in ker\phi\Leftrightarrow \phi(A) = 1\Leftrightarrow |A| = 1$
+
+故$ker\phi$是所有行列式为1的$M_n(Q)$中的矩阵构成的集合
+
+\subsection*{48}
+
+若$\phi$是$<Q, +>$到$<Z, +>$的同态映射，且$\exists a\in Q, s.t. \phi(a)\neq 0$，不妨设$\phi(a) = s\in Z$
+
+由$\phi(0) = 0$知$a\neq 0$，我们考察$\phi(a / 2s^2)$
+
+由于$2s^2\phi(a / 2s^2) = \phi(2s^2(a / 2s^2)) = \phi(a) = s$，有$\phi(a / 2s^2) = \frac{1}{2s}\notin Z$，与群的定义矛盾！
+
+故对于任意$<Q, +>$到$<Z, +>$的同态映射$\phi$，不存在$a\in Q, s.t. \phi(a)\neq 0$，故$\phi$为零同态，命题得证
+
+\subsection*{51}
+
+(1)
+
+首先$e\in \phi^{-1}(H)$，故而$\phi^{-1}(H)$非空
+
+又$\forall x, y\in \phi^{-1}(H), \phi(xy^{-1}) = \phi(x)\phi(y)^{-1}$
+
+且$\phi(x)\in H, \phi(y)\in H\Rightarrow \phi(y)^{-1}\in H\Rightarrow \phi(x)\phi(y)^{-1}\in H\Rightarrow xy^{-1}\in \phi^{-1}(H)$
+
+故$\phi^{-1}(H)$构成$G_1$的子群
+
+(2)
+
+若H是$G_2$的正规子群，由(1)，$\phi^{-1}(H)$构成$G_1$的子群
+
+$\forall x\in G_1, y\in \phi^{-1}(H), \phi(xyx^{-1}) = \phi(x)\phi(y)\phi(x)^{-1}$
+
+又$H$是$G_2$的正规子群$\Rightarrow\phi(x)\phi(y)\phi(x)^{-1}\in H\Rightarrow xyx^{-1}\in \phi^{-1}(H)$，由x，y的任意性，$\phi^{-1}(H)$是$G_1$的正规子群
+
+\end{document}
