@@ -290,7 +290,7 @@
   - 格的不等式
     - <img src="./pics/10.jpeg">
 
-### 子格、格同态
+### 子格、格同态（期中不考）
 - 子格：关于$\lor, \land$封闭
 - 格同态：$a\leq b\Rightarrow f(a)\leq f(b)$
   - $f(a)\leq f(b)$不一定能推出$a\leq b$

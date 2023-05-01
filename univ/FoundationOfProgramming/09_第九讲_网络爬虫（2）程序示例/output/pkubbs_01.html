@@ -1,0 +1,706 @@
+<html><head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta http-equiv="x-pjax-version" content="v11">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="alternate" media="only screen and (max-width: 640px)" href="https://bbs.pku.edu.cn/v2/mobile/home.php">
+  <script type="text/javascript">
+        window.login = true;
+        window.username = "XierLabberII";
+  </script>
+
+<!-- start _stylesheets_and_scripts.php-->
+<link rel="stylesheet" href="css/all.css?v26">
+<script>
+    if (typeof(window.console) == 'undefined')
+        window.console = {};
+    if (typeof(window.console.log) == 'undefined')
+      window.console.log = function(a){};
+</script>
+<script src="js/config.js?v4"></script>
+<script src="libs/crypto-js/crypto-js.js"></script>
+<script src="libs/jquery-1.11.3.min.js"></script>
+<script src="libs/jquery.pjax.js"></script>
+<script src="libs/jquery.ba-resize.min.js"></script>
+<script src="libs/underscore-min.js"></script>
+<script src="libs/jquery.gridly/javascripts/jquery.gridly.js"></script>
+<script src="libs/jquery.transit.0.9.12/jquery.transit.js"></script>
+<script src="libs/rangy-1.3.0/rangy-core.js"></script>
+<script src="libs/rangy-1.3.0/rangy-selectionsaverestore.js"></script>
+<script src="libs/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="libs/Sortable.min.js"></script>
+<script src="libs/jquery.selection.js"></script>
+<script src="libs/strophejs-1.2.5/strophe.min.js"></script>
+<script src="libs/highlight/highlight.pack.js"></script>
+<script src="libs/highslide/highslide-with-gallery.js"></script>
+<script src="libs/bdwm/bdwm.min.js?v13"></script>
+<script src="js/all.min.js?v27"></script>
+<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="libs/highlight/styles/github.css">
+<link rel="stylesheet" href="libs/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="libs/highslide/highslide.css">
+<!--[if lt IE 7]>
+<link rel="stylesheet" href="libs/highslide/highslide-ie6.css" />
+<![endif]-->
+<link rel="stylesheet" href="libs/bdwm/bdwm.min.css?v5">
+
+<!-- end _stylesheets_and_scripts.php-->
+
+<!-- start meta -->
+<title>北大未名BBS - 北京大学校园论坛，北大人的网上精神家园</title>
+<meta name="description" content="创立于2000年，作为北京大学唯一的BBS论坛，是北大师生、校友日常交流的重要信息传播载体和信息服务形式。">
+
+<!-- end meta -->
+<script>
+  var isShownWelcome = false;
+</script>
+<style type="text/css">.highslide img {cursor: url(../v2/libs/highslide/graphics/zoomin.cur), pointer !important;}.highslide-viewport-size {position: fixed; width: 100%; height: 100%; left: 0; top: 0}</style></head>
+<body>
+<div style="margin:0 auto;width:0px;height:0px;overflow:hidden;"><img src="images/logo.jpg"></div> <!-- for wechat thumb -->
+<div style="display: none" id="global-time">1681906811</div><!-- for time align -->
+<nav id="left-nav">
+  <div id="logo"><a href="home.php"><img src="/v2/uploads/logo_ibfb2M.png"></a></div>
+  <div id="user-info">
+    <div class="have-login" style="display: block;">
+      <div class="portrait-container">
+        <img class="portrait pic" src="images/user/portrait-mas.png">
+      </div>
+      <p class="username small">
+        <a class="user-list-trigger" data-action="user-list-trigger"></a>
+        <span data-role="login-username">XierLabberII</span>
+        <span class="triangle"></span>
+        <span class="btn-list" style="display: none">
+          <a class="btn-goto-homepage" href="user.php?uid=431401">个人主页</a>
+          <a href="modify-profile.php">修改帐号</a>
+          <a class="btn-logout">退出</a>
+        </span>
+      </p>
+      <ul id="detail-list">
+        <li data-role="login-nickname">昵称：XierLabber</li>
+        <li data-role="login-rankname">等级：没等级</li>
+        <li data-role="login-numposts">文章：0</li>
+      </ul>
+    </div>
+    <div class="not-login" style="display: none;">
+      <form id="loginform">
+        <div class="portrait-container">
+          <img class="portrait pic" src="images/home/icon-weidenglu.png">
+        </div>
+        <div class="input-wrapper">
+          <input type="text" placeholder="用户名 / username" name="username" id="username">
+        </div>
+        <div class="input-wrapper">
+          <input type="password" placeholder="密码 / password" name="password">
+        </div>
+        <div class="input-wrapper">
+          <input type="checkbox" name="keepalive" data-role="keepalive" id="form-remember-checkbox">
+          <label for="form-remember-checkbox">下次自动登录</label>
+        </div>
+        <div class="btn-group">
+          <a class="btn" id="btn-login">登录</a>
+          <a class="btn" id="btn-register" data-no-pjax="" href="register.php" target="_blank">注册</a>
+        </div>
+        <a class="white-link" data-no-pjax="" href="reset-password-req.php">找回密码</a>
+      </form>
+    </div>
+  </div>
+  <div id="link-buttons">
+    <a href="home.php" id="tab_home" class="cur"><img src="images/home/iconfont-home.png">首页</a>
+    <a href="favorite.php" id="tab_favorite"><img src="images/home/icon-shoucangjia.png">版面收藏夹</a>
+    <a href="zone.php" id="tab_zone"><img src="images/home/iconfont-fenlei.png">版面目录</a>
+    <a href="favorite-collection.php" id="tab_favorite_collection"><img src="images/home/icon-jinghuaqu.png">精华区收藏夹</a>
+    <a href="friend.php" id="tab_friend"><img src="images/home/iconfont-haoyou.png">关注/粉丝</a>
+      </div>
+</nav>
+
+<nav id="top-nav">
+  <div class="wrapper">
+    <div class="inner-wrapper">
+      <div class="search-box bdwm-search-box"><input class="search-ipt" type="text" placeholder="搜索版面、帖子、用户" autocomplete="off">
+<img class="search-btn" src="images/home/iconfont-sousuo.png">
+<ul class="search-result box-shadow keywords-result">
+</ul>
+<ul class="search-result box-shadow history-result">
+</ul></div>
+      <div class="right-icons">
+        <span id="icon-mail">
+          <img src="images/home/iconfont-xinjian.png">
+          <span class="notice-digit">2</span>
+        </span>
+        <div class="extend-menu mail-extend-menu">
+          <span class="triangle"></span>
+          <div class="content box-shadow">
+            <li class="hidden-template mail-template">
+              <a class="wrapper">
+                <div class="portrait-wrapper">
+                  <img class="portrait" src="images/cat.jpg">
+                </div>
+                <div class="right">
+                  <p class="username">MDog</p>
+                  <p class="title">六点勺园约么？</p>
+                  <p class="detail">凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数凑字数</p>
+                </div>
+              </a>
+            </li>
+            <ul><li class="">
+              <a class="wrapper" href="mail-read.php?postid=26786477">
+                <div class="portrait-wrapper">
+                  <img class="portrait" src="images/cat.jpg">
+                </div>
+                <div class="right">
+                  <p class="username">deliver</p>
+                  <p class="title">新手上路必读</p>
+                  <p class="detail">亲爱的朋友： 　　恭喜您已经通过北大未名BBS的身份认证，非常高兴您成为我们共同的大家庭中新的一员，我们将尽我们所能为您提供完善的服务！收到这封信后，退出BBS然后重新登录，就可以成为正式用户，拥有各</p>
+                </div>
+              </a>
+            </li><li class="">
+              <a class="wrapper" href="mail-read.php?postid=26786476">
+                <div class="portrait-wrapper">
+                  <img class="portrait" src="images/cat.jpg">
+                </div>
+                <div class="right">
+                  <p class="username">deliver</p>
+                  <p class="title">恭喜您完成注册单身份核验</p>
+                  <p class="detail">　　您已经通过北大未名BBS的身份检验，我们认为您的资料已经符合要求，所以让您通过。我们非常地兴奋，又多了一位使用者加入这个大家庭，我们将会尽力为您提供最好的服务，祝愿您在本站愉快。 　　参与版面讨论</p>
+                </div>
+              </a>
+            </li></ul>
+            <a class="view-all" data-no-pjax="">查看全部</a>
+          </div>
+        </div>
+        <span id="icon-setting">
+          <img src="images/home/iconfont-shezhi.png">
+        </span>
+        <div class="extend-menu setting-extend-menu">
+          <span class="triangle"></span>
+          <div class="content box-shadow">
+            <a href="modify-profile.php">修改帐号</a>
+            <a href="preference.php">偏好设置</a>
+            <a href="iaaa-bind.php">校内认证</a>
+            <a href="help.php">帮助中心</a>
+            <a class="btn-logout">退出</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="page-content">
+    <div id="login-info" style="display: none">
+      <div data-role="login-info-username" data-value="XierLabberII"></div>
+      <div data-role="login-info-nickname" data-value="XierLabber"></div>
+      <div data-role="login-info-rankname" data-value="没等级"></div>
+      <div data-role="login-info-numposts" data-value="0"></div>
+    </div>
+    <!-- this is the real content, should be returned from server when PJAX working.-->
+<!-- start main -->
+<div id="bdwm-title">北大未名BBS - 北京大学校园论坛，北大人的网上精神家园</div>
+<script>
+$("#link-buttons > a").removeClass("cur");
+$("#tab_home").addClass("cur");
+</script>
+<div id="page-home">
+  <div class="advt" id="banner_top" data-timeout="3">
+    <div id="banner_top_0" style="display: block;">
+      <a href="https://bbs.pku.edu.cn/v2/download.php" target="_blank" data-no-pjax=""><img src="/v2/uploads/banner_q1nqjw.gif"></a>
+    </div>
+  </div>
+  <div class="column-left">
+    <div>
+      <section class="topic-block big-ten">
+        <div class="wrapper">
+          <div class="title one-line">
+            <p>
+              <span class="name">全站十大</span>
+                          <a class="more-link" href="hot-topic.php">更多</a>
+                        </p>
+          </div>
+          <ul>
+            <li><span class="rank-digit">1</span><a class="topic-link" href="thread.php?bid=167">[鹊桥]</a><a class="post-link" href="post-read.php?bid=167&amp;threadid=18535607">【For&nbsp;GG】帮在北大做科研助理的95年可爱妹妹征友</a></li>
+            <li><span class="rank-digit">2</span><a class="topic-link" href="thread.php?bid=1431">[燕园食宿]</a><a class="post-link" href="post-read.php?bid=1431&amp;threadid=18535484">勺园早上油条窗口能否减少糖油饼比例？</a></li>
+            <li><span class="rank-digit">3</span><a class="topic-link" href="thread.php?bid=99">[找工作啦]</a><a class="post-link" href="post-read.php?bid=99&amp;threadid=18534779">【急求比较】留校or上海电网</a></li>
+            <li><span class="rank-digit">4</span><a class="topic-link" href="thread.php?bid=414">[别问我是谁]</a><a class="post-link" href="post-read.php?bid=414&amp;threadid=18535154">我来说说我的这四十年吧，妥妥的失败者&nbsp;</a></li>
+            <li><span class="rank-digit">5</span><a class="topic-link" href="thread.php?bid=438">[校长信箱]</a><a class="post-link" href="post-read.php?bid=438&amp;threadid=18534673">建议数学科学学院下调基础课考核难度</a></li>
+            <li><span class="rank-digit">6</span><a class="topic-link" href="thread.php?bid=484">[笔记本电脑]</a><a class="post-link" href="post-read.php?bid=484&amp;threadid=18532654">win11续航炸了</a></li>
+            <li><span class="rank-digit">7</span><a class="topic-link" href="thread.php?bid=90">[美食天地]</a><a class="post-link" href="post-read.php?bid=90&amp;threadid=18534609">【记录】羲公子冰煮羊（五道口店），俩人，404</a></li>
+            <li><span class="rank-digit">8</span><a class="topic-link" href="thread.php?bid=7">[测试用版]</a><a class="post-link" href="post-read.php?bid=7&amp;threadid=18531938">【邀请函】未名ChatGPT&nbsp;Turbo3.0，能说绘道</a></li>
+            <li><span class="rank-digit">9</span><a class="topic-link" href="thread.php?bid=138">[医学部]</a><a class="post-link" href="post-read.php?bid=138&amp;threadid=18535156">跃一里的WHO十大垃圾食品</a></li>
+            <li><span class="rank-digit">10</span><a class="topic-link" href="thread.php?bid=52">[男孩子]</a><a class="post-link" href="post-read.php?bid=52&amp;threadid=18534014">记一次毕业前的校园crush</a></li>
+          </ul>
+        </div>
+      </section><!--
+      --><section class="topic-block">
+        <div class="wrapper">
+          <div class="title one-line">
+            <p>
+              <span class="name">校园热点</span>
+              <a class="more-link" href="thread.php?bid=351">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="post-link" href="post-read-single.php?bid=351&amp;type=2&amp;postid=26780870">【招生】国家发展研究院参加本科招生开放日报名</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=351&amp;type=2&amp;postid=26779619">【招生】北大国关国际组织与国际公共政策专业宣讲会</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=351&amp;type=2&amp;postid=26769868">【活动】10W+启动经费&nbsp;招募燕园科创新青年</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=351&amp;type=2&amp;postid=26769714">【招募】工学院Globex国际暑期项目学生助理</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=351&amp;type=2&amp;postid=26768608">【招募助研】初级全栈开发1名</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=351&amp;type=2&amp;postid=26768359">【活动】北京大学智能学院第一届“学术智星”决赛</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=351&amp;type=2&amp;postid=26765847">【招募】北京大学企业大数据研究中心招募助研</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=351&amp;type=2&amp;postid=26767061">【通知】“学术写作自习室”将于4月17日开放预约</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=351&amp;type=2&amp;postid=26764303">【招聘助理】北京大学光华管理学院-&nbsp;数字纵深论坛</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=351&amp;type=2&amp;postid=26761398">【招募】艺术学院颗粒艺术实验室招聘学生助理</a></li>
+          </ul>
+        </div>
+      </section><!--
+      --><section class="topic-block">
+        <div class="wrapper">
+          <div class="title one-line">
+            <p>
+              <span class="name">讲座动态</span>
+              <a class="more-link" href="thread.php?bid=342">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="post-link" href="post-read-single.php?bid=342&amp;type=2&amp;postid=25238876">[04.19]【数据素养系列】数据统计分析软件SPSS进阶</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=342&amp;type=2&amp;postid=26768051">[04.19]&nbsp;王玉玊：规则怪谈与类克苏鲁设定</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=342&amp;type=2&amp;postid=26771301">[04.19]新工科讲堂|管晓宏院士：绿色的呼唤与希望</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=342&amp;type=2&amp;postid=26779677">[04.19]&nbsp;许子东：张爱玲笔下的女性与母性</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=342&amp;type=2&amp;postid=26777113">[04.20]对话投资总监|债券的量化研究及系统化投资</a></li>
+          </ul>
+        </div>
+      </section><!--
+      --><section class="topic-block">
+        <div class="wrapper">
+          <div class="title one-line">
+            <p>
+              <span class="name">站内热点</span>
+              <a class="more-link" href="thread.php?bid=352">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="post-link" href="post-read-single.php?bid=352&amp;postid=26784042">未名起居注&nbsp;2023年04月18日</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=352&amp;postid=26775843">未名起居注&nbsp;2023年04月15日</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=352&amp;postid=26769246">未名起居注&nbsp;2023年04月13日</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=352&amp;postid=26766219">未名起居注&nbsp;2023年04月12日</a></li>
+            <li><a class="post-link" href="post-read-single.php?bid=352&amp;postid=26763072">未名起居注&nbsp;2023年04月11日</a></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="advt" id="banner_middle" data-timeout="4">
+              <div id="banner_middle_0" style="display: block;">
+          <a href="https://bbs.pku.edu.cn/123/" target="_blank" data-no-pjax=""><img src="/v2/uploads/banner_cQUFRl.png"></a>
+        </div>
+            </div>
+
+    <div>
+      <section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=621"><span class="area-digit">〇区</span><span class="name">BBS系统</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=351">[校园热点]</a>
+              <a class="topic-link" href="thread.php?bid=164">[仲裁]</a>
+              <a class="topic-link" href="thread.php?bid=749">[二区区务]</a>
+              <a class="topic-link" href="thread.php?bid=130">[炫彩未名]</a>
+              <a class="more-link" href="board.php?bid=621">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=7">[测试用版]</a><a class="post-link" href="post-read.php?bid=7&amp;threadid=18534607">test</a></li>
+            <li><a class="topic-link" href="thread.php?bid=1">[站长的工作室]</a><a class="post-link" href="post-read.php?bid=1&amp;threadid=18529830">cylpku&nbsp;申请&nbsp;PieBridge&nbsp;版版务(转载)</a></li>
+            <li><a class="topic-link" href="thread.php?bid=16">[BBS使用求助]</a><a class="post-link" href="post-read.php?bid=16&amp;threadid=18535899">为什么微信小程序时不时要求我重新登录</a></li>
+            <li><a class="topic-link" href="thread.php?bid=740">[ABC区区务]</a><a class="post-link" href="post-read.php?bid=740&amp;threadid=18535932">[申请]Bigscience申请魔方社版版务</a></li>
+          </ul>
+        </div>
+      </section><!--
+      --><section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=664"><span class="area-digit">一区</span><span class="name">北京大学</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=57">[物理学院]</a>
+              <a class="topic-link" href="thread.php?bid=25">[北京大学图书馆]</a>
+              <a class="topic-link" href="thread.php?bid=155">[国际关系学院]</a>
+              <a class="topic-link" href="thread.php?bid=322">[信息科学技术学院]</a>
+              <a class="more-link" href="board.php?bid=664">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=138">[医学部]</a><a class="post-link" href="post-read.php?bid=138&amp;threadid=18534556">贵部学生已吃不起饭</a></li>
+            <li><a class="topic-link" href="thread.php?bid=1431">[燕园食宿]</a><a class="post-link" href="post-read.php?bid=1431&amp;threadid=18535835">家二的鱼片粥里疑似吃出虫子</a></li>
+            <li><a class="topic-link" href="thread.php?bid=222">[百周年纪念讲堂]</a><a class="post-link" href="post-read.php?bid=222&amp;threadid=18531993">【建议】与百周年纪念讲堂文艺演出相关的建议(转载)</a></li>
+            <li><a class="topic-link" href="thread.php?bid=222">[百周年纪念讲堂]</a><a class="post-link" href="post-read.php?bid=222&amp;threadid=18534011">求和上海越剧院长期合作！</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=671"><span class="area-digit">二区</span><span class="name">乡情校谊</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=440">[山西]</a>
+              <a class="topic-link" href="thread.php?bid=477">[豫州大地]</a>
+              <a class="topic-link" href="thread.php?bid=472">[东方明珠]</a>
+              <a class="topic-link" href="thread.php?bid=457">[浙江]</a>
+              <a class="more-link" href="board.php?bid=671">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=468">[皇城根儿]</a><a class="post-link" href="post-read.php?bid=468&amp;threadid=18535075">京版《早餐歌》</a></li>
+            <li><a class="topic-link" href="thread.php?bid=468">[皇城根儿]</a><a class="post-link" href="post-read.php?bid=468&amp;threadid=18535827">北京长峰医院火灾已致29人遇难，系莆田系</a></li>
+            <li><a class="topic-link" href="thread.php?bid=104">[清华大学]</a><a class="post-link" href="post-read.php?bid=104&amp;threadid=18535732">[招领]张亚萱的身份证(转载)</a></li>
+            <li><a class="topic-link" href="thread.php?bid=486">[南粤风采]</a><a class="post-link" href="post-read.php?bid=486&amp;threadid=18523621">建了个潮汕同乡群</a></li>
+          </ul>
+        </div>
+      </section><!--
+      --><section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=673"><span class="area-digit">三区</span><span class="name">学术研讨</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=606">[现代中国]</a>
+              <a class="topic-link" href="thread.php?bid=342">[讲座动态]</a>
+              <a class="topic-link" href="thread.php?bid=382">[气象万千]</a>
+              <a class="topic-link" href="thread.php?bid=236">[数学]</a>
+              <a class="more-link" href="board.php?bid=673">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=249">[谈股论金]</a><a class="post-link" href="post-read.php?bid=249&amp;threadid=18366884">目前要积极地面对股市</a></li>
+            <li><a class="topic-link" href="thread.php?bid=89">[天文]</a><a class="post-link" href="post-read.php?bid=89&amp;threadid=18535690">APOD230419&nbsp;拉普兰上空的极光暴</a></li>
+            <li><a class="topic-link" href="thread.php?bid=244">[医学与健康]</a><a class="post-link" href="post-read.php?bid=244&amp;threadid=18532073">有没有朋友能分享一下校医院做胃镜的流程和感受如何</a></li>
+            <li><a class="topic-link" href="thread.php?bid=244">[医学与健康]</a><a class="post-link" href="post-read.php?bid=244&amp;threadid=18535439">弱弱的问，早泄怎么办</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=674"><span class="area-digit">四区</span><span class="name">电脑网络</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=488">[苹果爱好者]</a>
+              <a class="topic-link" href="thread.php?bid=209">[网络资源]</a>
+              <a class="topic-link" href="thread.php?bid=197">[手机数码]</a>
+              <a class="topic-link" href="thread.php?bid=1360">[程序设计]</a>
+              <a class="more-link" href="board.php?bid=674">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=1361">[桌面电脑]</a><a class="post-link" href="post-read.php?bid=1361&amp;threadid=18535219">【装机配置求指导】</a></li>
+            <li><a class="topic-link" href="thread.php?bid=484">[笔记本电脑]</a><a class="post-link" href="post-read.php?bid=484&amp;threadid=18530809">求推荐5000左右笔记本</a></li>
+            <li><a class="topic-link" href="thread.php?bid=35">[网络技术]</a><a class="post-link" href="post-read.php?bid=35&amp;threadid=18279743">求教一个可靠VPN问题</a></li>
+            <li><a class="topic-link" href="thread.php?bid=1361">[桌面电脑]</a><a class="post-link" href="post-read.php?bid=1361&amp;threadid=18530710">想装个台式机做stable&nbsp;diffusion和深度学习的相关训</a></li>
+          </ul>
+        </div>
+      </section><!--
+      --><section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=675"><span class="area-digit">五区</span><span class="name">人文艺术</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=210">[科幻]</a>
+              <a class="topic-link" href="thread.php?bid=18">[武侠世家]</a>
+              <a class="topic-link" href="thread.php?bid=163">[梦回红楼]</a>
+              <a class="topic-link" href="thread.php?bid=338">[ID文化]</a>
+              <a class="more-link" href="board.php?bid=675">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=1064">[耽美文学]</a><a class="post-link" href="post-read.php?bid=1064&amp;threadid=18531086">[04.19]&nbsp;王玉玊：规则怪谈与类克苏鲁设定(转载)</a></li>
+            <li><a class="topic-link" href="thread.php?bid=53">[阅读空间]</a><a class="post-link" href="post-read.php?bid=53&amp;threadid=18535241">分类读书随谈沙龙&nbsp;|&nbsp;和喜欢读书的人线下相遇</a></li>
+            <li><a class="topic-link" href="thread.php?bid=168">[言情小说]</a><a class="post-link" href="post-read.php?bid=168&amp;threadid=18531086">[04.19]&nbsp;王玉玊：规则怪谈与类克苏鲁设定(转载)</a></li>
+            <li><a class="topic-link" href="thread.php?bid=251">[非主流文化]</a><a class="post-link" href="post-read.php?bid=251&amp;threadid=18535118">b站新番将“史莱姆”一词替换为“史莱公”</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=678"><span class="area-digit">六区</span><span class="name">休闲娱乐</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=958">[天黑请闭眼]</a>
+              <a class="topic-link" href="thread.php?bid=441">[图片艺术]</a>
+              <a class="topic-link" href="thread.php?bid=94">[旅游]</a>
+              <a class="topic-link" href="thread.php?bid=108">[动漫天地]</a>
+              <a class="more-link" href="board.php?bid=678">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=1472">[原神]</a><a class="post-link" href="post-read.php?bid=1472&amp;threadid=18535008">每次都歪迪卢克！</a></li>
+            <li><a class="topic-link" href="thread.php?bid=1367">[明信片]</a><a class="post-link" href="post-read.php?bid=1367&amp;threadid=18460229">【邮路通报】一拉尼卡2023年收片记录</a></li>
+            <li><a class="topic-link" href="thread.php?bid=79">[流行歌坛]</a><a class="post-link" href="post-read.php?bid=79&amp;threadid=17886034">【翻唱】《刻在我心底的名字》卢广仲</a></li>
+            <li><a class="topic-link" href="thread.php?bid=90">[美食天地]</a><a class="post-link" href="post-read.php?bid=90&amp;threadid=18513484">求问团建吃饭的好去处</a></li>
+          </ul>
+        </div>
+      </section><!--
+      --><section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=679"><span class="area-digit">七区</span><span class="name">知性感性</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=103">[未名湖]</a>
+              <a class="topic-link" href="thread.php?bid=361">[日记]</a>
+              <a class="topic-link" href="thread.php?bid=36">[谈情说爱]</a>
+              <a class="topic-link" href="thread.php?bid=150">[且歌且行]</a>
+              <a class="more-link" href="board.php?bid=679">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=414">[别问我是谁]</a><a class="post-link" href="post-read.php?bid=414&amp;threadid=18535769">为啥北大校友没有互帮互助的传统&nbsp;&nbsp;不拉踩就算不错了</a></li>
+            <li><a class="topic-link" href="thread.php?bid=167">[鹊桥]</a><a class="post-link" href="post-read.php?bid=167&amp;threadid=18535922">【For&nbsp;MM】代同学征友&nbsp;适合有军人情结的mm哦</a></li>
+            <li><a class="topic-link" href="thread.php?bid=52">[男孩子]</a><a class="post-link" href="post-read.php?bid=52&amp;threadid=18534749">約未名湖喝酒</a></li>
+            <li><a class="topic-link" href="thread.php?bid=176">[灰色心情]</a><a class="post-link" href="post-read.php?bid=176&amp;threadid=18531087">不想期中考试</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=680"><span class="area-digit">八区</span><span class="name">三角地</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=896">[实习]</a>
+              <a class="topic-link" href="thread.php?bid=419">[兼职信息]</a>
+              <a class="topic-link" href="thread.php?bid=845">[求职信息发布]</a>
+              <a class="topic-link" href="thread.php?bid=165">[失物招领]</a>
+              <a class="more-link" href="board.php?bid=680">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=99">[找工作啦]</a><a class="post-link" href="post-read.php?bid=99&amp;threadid=18535826">【offer求比较】国网二级单位&nbsp;v.s.&nbsp;中金IT</a></li>
+            <li><a class="topic-link" href="thread.php?bid=71">[跳蚤市场]</a><a class="post-link" href="post-read.php?bid=71&amp;threadid=18531396">尝试出租-电动自行车</a></li>
+            <li><a class="topic-link" href="thread.php?bid=71">[跳蚤市场]</a><a class="post-link" href="post-read.php?bid=71&amp;threadid=18535468">【出】优利德UTi260B工业热成像仪</a></li>
+            <li><a class="topic-link" href="thread.php?bid=230">[房屋租赁]</a><a class="post-link" href="post-read.php?bid=230&amp;threadid=18518043">2023届租房群&nbsp;有转租和求租的同学可以进群交流</a></li>
+          </ul>
+        </div>
+      </section><!--
+      --><section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=681"><span class="area-digit">九区</span><span class="name">体育修身</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=219">[健美健身]</a>
+              <a class="topic-link" href="thread.php?bid=659">[皇家马德里]</a>
+              <a class="topic-link" href="thread.php?bid=126">[网球天地]</a>
+              <a class="topic-link" href="thread.php?bid=643">[围棋]</a>
+              <a class="more-link" href="board.php?bid=681">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=744">[麻将天地]</a><a class="post-link" href="post-read.php?bid=744&amp;threadid=18535127">活捉一个机器人</a></li>
+            <li><a class="topic-link" href="thread.php?bid=93">[足球世界]</a><a class="post-link" href="post-read.php?bid=93&amp;threadid=18535729">版大：这钱也太好赚了</a></li>
+            <li><a class="topic-link" href="thread.php?bid=594">[米兰天下]</a><a class="post-link" href="post-read.php?bid=594&amp;threadid=18535553">欧冠&nbsp;Napoli&nbsp;1-1&nbsp;Milan&nbsp;进半决赛啦！</a></li>
+            <li><a class="topic-link" href="thread.php?bid=519">[体育游戏]</a><a class="post-link" href="post-read.php?bid=519&amp;threadid=18534892">LGD欧冠半决赛次回合首发</a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=682"><span class="area-digit">Ａ区</span><span class="name">社团群体</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=952">[定向运动协会]</a>
+              <a class="topic-link" href="thread.php?bid=143">[爱心畅谈]</a>
+              <a class="topic-link" href="thread.php?bid=1092">[武侠文化研究协会]</a>
+              <a class="topic-link" href="thread.php?bid=515">[之江发展论坛]</a>
+              <a class="more-link" href="board.php?bid=682">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=301">[北大法律援助协会]</a><a class="post-link" href="post-read.php?bid=301&amp;threadid=18535838">【求助】债务纠纷</a></li>
+            <li><a class="topic-link" href="thread.php?bid=224">[山鹰论坛]</a><a class="post-link" href="post-read.php?bid=224&amp;threadid=18535812">【2023.04.22-04.23龙门涧野外】装备计划</a></li>
+            <li><a class="topic-link" href="thread.php?bid=224">[山鹰论坛]</a><a class="post-link" href="post-read.php?bid=224&amp;threadid=18535797">【第十三届户外技能大赛】开闭幕式总结</a></li>
+            <li><a class="topic-link" href="thread.php?bid=696">[手语分社]</a><a class="post-link" href="post-read.php?bid=696&amp;threadid=18529516">【翘团】第五次小团总结</a></li>
+          </ul>
+        </div>
+      </section><!--
+      --><section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=683"><span class="area-digit">Ｂ区</span><span class="name">组织机构</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=253">[北京大学学生会]</a>
+              <a class="topic-link" href="thread.php?bid=454">[团委学术科创部]</a>
+              <a class="topic-link" href="thread.php?bid=1284">[党课大家庭]</a>
+              <a class="topic-link" href="thread.php?bid=978">[宝洁俱乐部]</a>
+              <a class="more-link" href="board.php?bid=683">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=690">[心理健康教育与咨询中心]</a><a class="post-link" href="post-read.php?bid=690&amp;threadid=18535002">疯狂后悔</a></li>
+            <li><a class="topic-link" href="thread.php?bid=289">[社团文体之家]</a><a class="post-link" href="post-read.php?bid=289&amp;threadid=18535575">咨询魔方社</a></li>
+            <li><a class="topic-link" href="thread.php?bid=690">[心理健康教育与咨询中心]</a><a class="post-link" href="post-read.php?bid=690&amp;threadid=18535067">如何从被强迫劳动的阴影里走出来?</a></li>
+            <li></li>
+          </ul>
+        </div>
+      </section>
+      <section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=685"><span class="area-digit">Ｃ区</span><span class="name">课程特区</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=485">[心理学概论]</a>
+              <a class="topic-link" href="thread.php?bid=1010">[心理学双学位]</a>
+              <a class="topic-link" href="thread.php?bid=917">[日本文化艺术专题]</a>
+              <a class="topic-link" href="thread.php?bid=514">[数学双学位]</a>
+              <a class="more-link" href="board.php?bid=685">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </section><!--
+      --><section class="topic-block">
+        <div class="wrapper">
+          <div class="title two-line">
+            <p><a href="board.php?bid=687"><span class="area-digit">Ｆ区</span><span class="name">校务特区</span></a></p>
+            <p>
+              <a class="topic-link" href="thread.php?bid=622">[北京大学财务部]</a>
+              <a class="topic-link" href="thread.php?bid=933">[北京大学研究生院]</a>
+              <a class="topic-link" href="thread.php?bid=625">[北京大学就业指导中心]</a>
+              <a class="topic-link" href="thread.php?bid=411">[北京大学学生资助中心]</a>
+              <a class="more-link" href="board.php?bid=687">更多</a>
+            </p>
+          </div>
+          <ul>
+            <li><a class="topic-link" href="thread.php?bid=438">[校长信箱]</a><a class="post-link" href="post-read.php?bid=438&amp;threadid=18527779">反对长期取消作为北大传统的“夜奔”活动</a></li>
+            <li><a class="topic-link" href="thread.php?bid=316">[北京大学体育教研部]</a><a class="post-link" href="post-read.php?bid=316&amp;threadid=18535170">彻底取消夜奔了吗?</a></li>
+            <li><a class="topic-link" href="thread.php?bid=668">[北京大学计算中心]</a><a class="post-link" href="post-read.php?bid=668&amp;threadid=18535189">如何解决邮箱提示"用户已锁定,&nbsp;请联系管理员"&nbsp;问题</a></li>
+            <li></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="advt" id="banner_bottom" data-timeout="5">
+              <div id="banner_bottom_0" style="display: block;">
+          <a href="https://bbs.pku.edu.cn/123/" target="_blank" data-no-pjax=""><img src="/v2/uploads/banner_XkfIwi.png"></a>
+        </div>
+            </div>
+
+  </div><!--
+  --><div class="column-right">
+    <section class="topic-block">
+      <div class="wrapper">
+        <div class="title one-line">
+          <p>
+            <span class="name">热门版面</span>
+          </p>
+        </div>
+        <ul>
+          <li><a class="post-link" href="thread.php?bid=414">别问我是谁 SecretGarden</a></li>
+          <li><a class="post-link" href="thread.php?bid=99">找工作啦 Job</a></li>
+          <li><a class="post-link" href="thread.php?bid=167">鹊桥 PieBridge</a></li>
+          <li><a class="post-link" href="thread.php?bid=71">跳蚤市场 SecondHand</a></li>
+          <li><a class="post-link" href="thread.php?bid=52">男孩子 Boy</a></li>
+          <li><a class="post-link" href="thread.php?bid=1431">燕园食宿 CanteenDorm</a></li>
+          <li><a class="post-link" href="thread.php?bid=138">医学部 HSC</a></li>
+          <li><a class="post-link" href="thread.php?bid=438">校长信箱 PKU_Suggest</a></li>
+          <li><a class="post-link" href="thread.php?bid=896">实习 Intern</a></li>
+          <li><a class="post-link" href="thread.php?bid=57">物理学院 Physics</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="topic-block">
+      <div class="wrapper">
+        <div class="title one-line">
+          <p>
+            <span class="name">失物招领</span>
+            <a class="more-link" href="thread.php?bid=165">更多</a>
+          </p>
+        </div>
+        <ul>
+          <li><a class="post-link" href="post-read-single.php?bid=165&amp;type=2&amp;postid=26785540">张亚萱的身份证</a></li>
+          <li><a class="post-link" href="post-read-single.php?bid=165&amp;type=2&amp;postid=26783968">国关冯晨曦校园卡</a></li>
+          <li><a class="post-link" href="post-read-single.php?bid=165&amp;type=2&amp;postid=26783494">7点左右在家园二层捡到水钻流苏戒指</a></li>
+          <li><a class="post-link" href="post-read-single.php?bid=165&amp;type=2&amp;postid=26779312">林倩瑶身份证</a></li>
+          <li><a class="post-link" href="post-read-single.php?bid=165&amp;type=2&amp;postid=26779098">捡到百讲演出票</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="topic-block contact-us">
+      <div class="wrapper">
+        <div class="title one-line">
+          <p>
+            <span class="name">联系我们</span>
+          </p>
+        </div>
+        <div class="second-block">
+          <p class="sn-link"><img src="images/home/iconfont-weibo.png"><a href="http://weibo.com/bdwmbbs" target="_blank">北大未名BBS</a></p>
+          <a href="http://weibo.com/bdwmbbs" target="_blank"><p class="qr-code"><img src="images/home/qrcode_weibo.png"></p></a>
+          <p class="sn-link"><img src="images/home/iconfont-weixin.png">PKUbdwmbbs</p>
+          <p class="qr-code"><img src="images/home/qrcode_wechat.jpg"></p>
+          <p class="sn-link"><img src="images/home/iconfont-weixin.png">北大未名小程序</p>
+          <p class="qr-code"><img src="images/home/qrcode_wechat_miniprogram.png"></p>
+        </div>
+      </div>
+    </section>
+    <section class="topic-block download">
+      <div class="wrapper">
+        <div class="title one-line">
+          <p>
+            <span class="name">客户端下载</span>
+          </p>
+        </div>
+        <div class="second-block">
+          <p><a href="download.php"><img src="images/home/anniu-Term.png"></a></p>
+          <p><a href="https://apps.apple.com/cn/app/%E5%8C%97%E5%A4%A7%E6%9C%AA%E5%90%8Dbbs/id1455453166"><img src="images/home/anniu-IOS.png" title="最低系统版本iOS 11"></a></p>
+          <p><a><img src="images/home/anniu-Android-comingsoon.png" title="敬请期待"></a></p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+<!-- start _welcome.php-->
+<div id="dialog-welcome">
+  <div class="loading"><img src="images/welcome/loading.gif"></div>
+  <a class="image" href="https://bbs.pku.edu.cn/v2/post-read.php?bid=1&amp;threadid=17010806" target="_blank" data-no-pjax=""><img id="welcome-image" style="visibility: hidden" src="/v2/uploads/index_MKoueo.jpg"></a>
+  <div class="bottom"><a class="button red" data-action="dialog-dismiss">进入未名BBS</a></div>
+  <a class="dismiss" data-action="dialog-dismiss"><i class="icon-font"></i></a>
+  <a class="side" data-action="show-welcome-request">进<br>站<br>申<br>请</a>
+</div>
+
+<div id="dialog-welcome-request">
+  <div class="title">进站申请</div>
+  <div class="subtitle">版面/活动类进站申请</div>
+  <div class="content">版面类进站为未名所有版面的活动宣传之用（个别特殊要求见下文），活动类进站为校内重大活动，如十佳歌手等对大部分北大学生有重大影响力的活动。院系/社团的文化节、活动、演出、讲座等也允许申请，但请在作品中体现对院系/社团版面的宣传。</div>
+  <div class="subtitle">个人设计作品进站投稿</div>
+  <div class="content">以校园、节日、纪念日等为题材的个人绘画、设计作品。</div>
+  <div class="buttons"><a href="post-read.php?bid=130&amp;threadid=3213366" class="button">查看详细说明</a><a href="thread.php?bid=130" class="button red">申请</a></div>
+  <div class="subtitle">个人摄影作品进站投稿</div>
+  <div class="content">以校园生活为题材的个人摄影作品。</div>
+  <div class="buttons"><a href="post-read.php?bid=130&amp;threadid=14330638" class="button">查看详细说明</a><a href="mail-new.php?username=ColorShow" class="button red">申请</a></div>
+  <a class="dismiss" data-action="dialog-dismiss"><i class="icon-font"></i></a>
+</div>
+<!-- end _welcome.php-->
+
+<!-- end main -->
+    <!-- content end-->
+</div>
+
+<div class="mask mask-without-header"></div>
+<div class="mask mask-full-screen" id="page-notice-container">
+  <div class="page-notice box-shadow">
+    <p>您输入的密码有误，请重新输入</p>
+    <button>确认</button>
+  </div>
+</div>
+<div class="mask mask-transparent"></div>
+<div class="mask mask-transparent top-nav"></div>
+
+
+<footer id="footer">
+  <p><a data-no-pjax="" href="../123/" target="_blank">常用网站</a> - <a href="download.php">相关下载</a> - <a href="publication.php">未名站刊</a> - <a href="about-us.php">关于我们</a> - <a href="contact.php">联系我们</a> - <a href="join-us.php">加入我们</a> - <a href="help.php">帮助中心</a> - <a href="mail-new.php?username=SYSOP">意见反馈</a></p>
+  <p><a href="javascript:void(0)" onclick="var url_mobile = window.location.href.replace('v2','v2/mobile');window.location.href=url_mobile">使用手机版浏览</a></p>
+  <p>© 2000–2023 北大未名BBS</p>
+</footer>
+
+
+<div class="highslide-container" style="padding: 0px; border: none; margin: 0px; position: absolute; left: 0px; top: 0px; width: 100%; z-index: 1001; direction: ltr;"><a class="highslide-loading" title="点击取消加载" href="javascript:;" style="position: absolute; top: -9999px; opacity: 0.75; z-index: 1;">载入中...</a><div style="display: none;"></div><div class="highslide-viewport highslide-viewport-size" style="padding: 0px; border: none; margin: 0px; visibility: hidden;"></div><table cellspacing="0" style="padding: 0px; border: none; margin: 0px; visibility: hidden; position: absolute; border-collapse: collapse; width: 0px;"><tbody style="padding: 0px; border: none; margin: 0px;"><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://bbs.pku.edu.cn/v2/libs/highslide/graphics/outlines/rounded-white.png&quot;) 0px 0px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://bbs.pku.edu.cn/v2/libs/highslide/graphics/outlines/rounded-white.png&quot;) 0px -40px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://bbs.pku.edu.cn/v2/libs/highslide/graphics/outlines/rounded-white.png&quot;) -20px 0px; height: 20px; width: 20px;"></td></tr><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://bbs.pku.edu.cn/v2/libs/highslide/graphics/outlines/rounded-white.png&quot;) 0px -80px; height: 20px; width: 20px;"></td><td class="rounded-white highslide-outline" style="padding: 0px; border: none; margin: 0px; position: relative;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://bbs.pku.edu.cn/v2/libs/highslide/graphics/outlines/rounded-white.png&quot;) -20px -80px; height: 20px; width: 20px;"></td></tr><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://bbs.pku.edu.cn/v2/libs/highslide/graphics/outlines/rounded-white.png&quot;) 0px -20px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://bbs.pku.edu.cn/v2/libs/highslide/graphics/outlines/rounded-white.png&quot;) 0px -60px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://bbs.pku.edu.cn/v2/libs/highslide/graphics/outlines/rounded-white.png&quot;) -20px -20px; height: 20px; width: 20px;"></td></tr></tbody></table></div></body></html>
