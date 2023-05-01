@@ -1,0 +1,54 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{forest}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\title{\vspace{-4cm}2023数据库概论第七章作业}
+\author{2000013058 杨仕博}
+\date{\today}
+\begin{document}
+\maketitle
+
+\subsection{}
+
+左：A
+右：
+双：BCDE
+
+1. 在所有原子属性中，左部属性只有A，剩下的全部为双部属性。
+
+$A_F^+ = A$
+
+$(AB)_F^+ = ABCDE$
+
+$(AC)_F^+ = ABCDE$
+
+$(AD)_F^+ = AD$
+
+$(AE)_F^+ = AE$
+
+因为$AB$是候选码，$ABC, ABD, ABE$不是候选码
+
+因为$AC$是候选码，$ACD, ACE$不是候选码
+
+$(ADE)_F^+ = ADE$
+
+因为$AB, AC$是候选码，$ABCD, ABCE, ABDE, ACDE, ABCDE$不是候选码
+
+因此候选码为$AB$和$AC$
+
+2. 
+
+该关系中
+
+(1) 每一分量不可再分，满足1NF
+
+(2) 非主属性有D、E，而D只部分依赖于B（而非AB），因而不满足第二范式。
+
+故范式级别为1NF
+
+3. 
+
+\end{document}
