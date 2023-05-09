@@ -5,6 +5,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{tabularx}
+\usepackage{listings}
 \title{\vspace{-4cm}2023数据库概论第七章作业}
 \author{2000013058 杨仕博}
 \date{\today}
@@ -14,7 +15,9 @@
 \subsection{}
 
 左：A
+
 右：
+
 双：BCDE
 
 1. 在所有原子属性中，左部属性只有A，剩下的全部为双部属性。
@@ -50,5 +53,290 @@ $(ADE)_F^+ = ADE$
 故范式级别为1NF
 
 3. 
+
+首先我们求出F的最小覆盖
+
+首先，F不需要进行单属性化
+
+之后，我们对F进行既约化
+
+对$AB\rightarrow C$，有$A^+ = A$，故不能删去B。
+
+对$AB\rightarrow C$，有$B^+ = BD$，故不能删去A。
+
+对$CD\rightarrow E$，有$C^+ = C$，故不能删去D。
+
+对$CD\rightarrow E$，有$D^+ = D$，故不能删去C。
+
+对$CE\rightarrow B$，有$C^+ = C$，故不能删去E。
+
+对$CE\rightarrow B$，有$E^+ = E$，故不能删去C。
+
+对$AC\rightarrow B$，有$A^+ = A$，故不能删去B。
+
+对$AC\rightarrow B$，有$C^+ = C$，故不能删去A。
+
+故F无需进行既约化
+
+之后，我们对F进行无冗余化
+
+去掉$AB\rightarrow C$，我们有$(AB)^+ = ABD$，故不能去掉此依赖。
+
+去掉$B\rightarrow D$，我们有$B^+ = B$，故不能去掉此依赖。
+
+去掉$CD\rightarrow E$，我们有$(CD)^+ = CD$，故不能去掉此依赖。
+
+去掉$CE\rightarrow B$，我们有$(CE)^+ = CE$，故不能去掉此依赖。
+
+去掉$AC\rightarrow B$，我们有$(AC)^+ = AC$，故不能去掉此依赖。
+
+故F无需进行无冗余化。
+
+之后，我们进行保持无损连接的分解。
+
+$B\rightarrow D$中，B不是主码，把$\{BD\}$分解出来，得到$\{ABCE, BD\}$
+
+$CE\rightarrow B$中，CE不是主码，把$\{BCE\}$分解出来，得到$\{ACE, BCE, BD\}$
+
+对$R_1(A, C, E), F_1 = \{AC\rightarrow E\}$
+
+对$R_2(B, C, E), F_2 = \{CE\rightarrow B\}$
+
+对$R_3(B, D), F_3 = \{B\rightarrow D\}$
+
+此时，没有一个依赖关系左侧不是码
+
+之后，我们进行保持函数依赖的分解。
+
+我们直接按照函数关系把原数据库关系分解为$\{ABC, BD, CDE, BCE\}$
+
+对$R_1(A, B, C), F_1 = \{AB\rightarrow C, AC\rightarrow B\}$
+
+对$R_2(B, D), F_2 = \{B\rightarrow D\}$
+
+对$R_3(C, D, E), F_3 = \{CD\rightarrow E\}$
+
+对$R_4(B, C, E), F_4 = \{CE\rightarrow B\}$
+
+\subsection{}
+
+$A_F^+ = A$
+
+$B_F^+ = B$
+
+$C_F^+ = C$
+
+$D_F^+ = AD$
+
+$(AB)_F^+ = ABD$
+
+$(AC)_F^+ = ABCDE$
+
+$(AD)_F^+ = AD$
+
+$(BC)_F^+ = ABCDE$
+
+$(BD)_F^+ = ABD$
+
+$(CD)_F^+ = ABCDE$
+
+$(ABD)_F^+ = ABD$
+
+所以投影为$\{D\rightarrow A, $
+$AB\rightarrow D, AC\rightarrow $
+$B, AC\rightarrow $
+$D, BC\rightarrow A, BC\rightarrow $
+$D\}$
+
+\subsection{}
+
+首先我们求这个关系模式的候选码
+
+左：B
+
+右：H
+
+双：C, D, F, G
+
+$B^+ = B$
+
+$(BC)^+ = BCDFGH$
+
+$(BD)^+ = BD$
+
+$(BF)^+ = BFD$
+
+$(BG)^+ = BCDFGH$
+
+故而候选码为$BC, BG$
+
+接下来我们求依赖集的最小覆盖
+
+首先单属性化：
+
+$\{
+    BG\rightarrow C, 
+    BG\Rightarrow D, 
+    G\rightarrow F, 
+    CD\rightarrow G, 
+    CD\rightarrow H, 
+    C\Rightarrow F, 
+    C\rightarrow G, 
+    F\rightarrow D
+\}$
+
+之后既约化：
+
+$BG\rightarrow C$中，$B^+ = B$, $G^+ = GFD$, 故不能删
+
+$BG\Rightarrow D$中，$B^+ = B, G^+ = GFD$, 故可以变为$G\rightarrow D$
+
+$CD\rightarrow G$中，$C^+ = CFGDH$, 故可以变为$C\rightarrow G$
+
+$CD\rightarrow H$同理可以变为$C\rightarrow H$
+
+现在依赖关系变为
+
+$\{
+    BG\rightarrow C, 
+    G\rightarrow D, 
+    G\rightarrow F, 
+    C\rightarrow G, 
+    C\rightarrow H, 
+    C\Rightarrow F, 
+    F\rightarrow D
+\}$
+
+之后无冗余化：
+
+去掉$BG\rightarrow C$后，$(BG)^+ = BGDF$，故不能删
+
+去掉$G\rightarrow D$后，$G^+ = GFD$，故可以删
+
+变为
+
+$\{
+    BG\rightarrow C, 
+    G\rightarrow F, 
+    C\rightarrow G, 
+    C\rightarrow H, 
+    C\Rightarrow F, 
+    F\rightarrow D
+\}$
+
+去掉$G\rightarrow F$后，$G^+ = G$，故不能删
+
+去掉$C\rightarrow G$后，G不依赖于任何东西，故不能删
+
+去掉$C\rightarrow H$后，H不依赖于任何东西，故不能删
+
+去掉$C\rightarrow F$后，$C^+ = CGHFD$，故可以删
+
+变为
+
+$\{
+    BG\rightarrow C, 
+    G\rightarrow F, 
+    C\rightarrow G, 
+    C\rightarrow H,  
+    F\rightarrow D
+\}$
+
+去掉$F\rightarrow D$后，$F^+ = F$，故不能删
+
+于是最小覆盖为
+
+$\{
+    BG\rightarrow C, 
+    G\rightarrow F, 
+    C\rightarrow G, 
+    C\rightarrow H,  
+    F\rightarrow D
+\}$
+
+故分解为$\rho = \{BCG, FG, CG, CH, FD\}$
+
+对$R_1(B, C, G), F_1 = \{BG\rightarrow C\}$
+
+对$R_2(F, G), F_2 = \{G\rightarrow F\}$
+
+对$R_3(C, G), F_3 = \{C\rightarrow G\}$
+
+对$R_4(C, H), F_1 = \{C\rightarrow H\}$
+
+对$R_5(F, D), F_1 = \{F\rightarrow D\}$
+
+\subsection{}
+
+1NF显然满足
+
+码只有A，故2NF满足
+
+由于可能成立$BD\rightarrow C$，故会产生$A\rightarrow BD, BD\rightarrow C$，
+不满足3NF
+
+故R的范式级别为2NF
+
+\subsection{}
+
+关系代数：
+
+$\pi_{AB}(R)\bowtie \pi_{AC}(R) = R$
+
+sql语句：
+
+\begin{lstlisting}[language=sql]
+SELECT EXISTS(
+    SELECT * FROM 
+    (
+        SELECT count(*) FROM
+        (
+            SELECT DISTINCT r1.A, r2.B, r1.C 
+            FROM r AS r1
+            FULL JOIN r AS r2
+            ON r1.A = r2.A
+        ) 
+    ) AS tb1
+    JOIN
+    (
+        SELECT count(*) FROM r
+    ) AS tb2
+) AS result
+\end{lstlisting}
+
+\subsection{}
+
+首先不需要单属性化
+
+之后进行既约化
+
+$(AC)^+ = ABCDE$，$A^+ = AB$，$C^+ = C$
+
+故可以删为
+
+$\{
+    AC\rightarrow E,
+    E\rightarrow D,
+    A\rightarrow B,
+    AC\rightarrow D
+\}$
+
+明显其余部分不能删减
+
+其次进行无冗余化
+
+$AC\rightarrow D$可以去掉，因为去掉之后$(AC)^+ = ACED$
+
+$A\rightarrow B$若去掉，则B不依赖任何值，故不能删
+
+$E\rightarrow D$若去掉，则D不依赖任何值，故不能删
+
+故最小覆盖为
+
+$\{
+    AC\rightarrow E,
+    E\rightarrow D,
+    A\rightarrow B
+\}$
 
 \end{document}

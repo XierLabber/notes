@@ -1,0 +1,19 @@
+Let's consider how many flows will be probed in each of the two phases. 
+For a k-ary fat tree, there are $\frac{k^2}{2}$ aggregation layer switches 
+and $\frac{k^2}{2}$ edge layer switches, and every switches in these two tiers 
+connect to $\frac{k}{2}$ upper tier switches. Thus, to achieve $\alpha-coverage$, 
+according to algorithm 1, we will probe 
+$n = \frac{k^2}{2}\frac{k}{2}(\ln\frac{k}{2}+(\alpha - 1)\ln\ln\frac{k}{2})$ 
+flows in the first phase. For a single link, it is covered by a 
+given flow with the probability of $p = \frac{4}{k^3}$. To achieve 
+$\alpha-coverage$, the expected number of flows that need to 
+be probed is 
+
+\[
+\begin{aligned}
+    \sum\limits_{i = 0}^{\alpha - 1}C_n^ip^i(1-p)^{n-i}(\alpha - i) &\leq \alpha\sum\limits_{i = 0}^{\alpha - 1}n^ip^i(1-p)^{n-\alpha}\\
+    &= O(\alpha^2(\ln k)^\alpha)
+\end{aligned}
+\]
+
+.

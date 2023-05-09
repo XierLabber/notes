@@ -1,0 +1,10 @@
+\{a, g, d, f, e\}
+\{b, a, g, f, e\}
+\{c, a, g, f, e\}
+\{b, a, g, d, e\}
+\{c, a, g, d, e\}
+\{c, b, a, g, e\}
+\{b, a, g, d, f\}
+\{c, a, g, d, f\}
+\{c, b, a, g, f\}
+\{c, b, a, g, d\}

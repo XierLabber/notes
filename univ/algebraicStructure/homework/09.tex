@@ -13,18 +13,178 @@
 
 \subsection*{2}
 
+(1) 不是格，因为[3, 4] = 12不在该集合中。
+
+(2) 是格，因为这个集合是12的所有正因子集合，构成12
+的正因子格。（一个数的两个因子的最大公因数和最小公倍数
+都是这个数的因子）
+
+(3) 是格，因为这个集合是36的所有正因子集合，构成36
+的正因子格。（一个数的两个因子的最大公因数和最小公倍数
+都是这个数的因子）
+
+(4) 是格，因为$\forall i, j\in N, i\leq j, (5^i, 5^j) = 5^i$,
+$[5^i, 5^j] = 5^j$都在这个集合中。
+
 \subsection*{8}
+
+（以下集合对应以他为载体的格）
+
+$L_1$
+
+3元子格：$\{b, c, e\}, \{b, d, e\}, \{a, b, e\}, \{a, b, c\}, \{a, b, d\}, \{a, c, e\}, \{a, d, e\}$
+
+4元子格：$\{e, c, b, a\}, \{e, d, b, a\}, \{e, c, d, b\}$
+
+5元子格：$L_1$
+
+$L_2$
+
+写程序枚举得
+
+3元子格：
+
+\{d, e, g\}, 
+\{e, b, g\}, 
+\{e, a, g\}, 
+\{f, d, g\}, 
+\{f, a, g\}, 
+\{f, c, g\}, 
+\{d, a, g\}, 
+\{a, b, g\}, 
+\{c, a, g\}, 
+\{d, e, a\}, 
+\{e, a, b\}, 
+\{f, d, a\}, 
+\{f, c, a\}
+
+4元子格：
+
+\{e, d, g, f\}
+\{e, a, g, f\}
+\{e, a, d, g\}
+\{e, b, a, g\}
+\{e, c, a, g\}
+\{a, d, g, f\}
+\{b, a, g, f\}
+\{c, a, g, f\}
+\{b, a, d, g\}
+\{a, c, d, g\}
+\{b, c, a, g\}
+\{e, a, b, d\}
+\{a, c, d, f\}
+
+5元子格：
+
+\{a, g, d, f, e\}
+\{b, a, g, f, e\}
+\{c, a, g, f, e\}
+\{b, a, g, d, e\}
+\{c, a, g, d, e\}
+\{c, b, a, g, e\}
+\{b, a, g, d, f\}
+\{c, a, g, d, f\}
+\{c, b, a, g, f\}
+\{c, b, a, g, d\}
 
 \subsection*{19}
 
+G的子群格为
+
+$L(G) = \{<a>, <a^p>, <a^{p^2}>, ..., <a^{p^t}>\}$
+
+记L从最小元到最大元依次为$b_0, b_1, ..., b_t$
+
+考察如下映射:$\phi(b_i) = <a^{p^i}>, \forall b_i\in L$(1)
+
+那么，$\phi$是单射，因为象的子群相同则该子群的a的最低幂次的元素相同，
+意味者b的脚标唯一固定，映射前的脚标一样进而输入相同。
+
+$\phi$是满射，因为在(1)式中$a^{p^i}, i = 0, 1, 2, ..., t$都跑遍了，
+进而所有元素都在象中。
+
+$\phi$是同态，因为$\forall i, j \in \{0, 1, 2, ..., t\}, j\leq i$，
+$\phi(b_i\land b_j) = \phi(b_j) = <a^{p^j}> = <a^{p^j}>\bigcap <a^{p^i}> = \phi(b_i)\bigcap \phi(b_j)$，
+类似地$\phi(b_i\lor b_j) = \phi(b_i) = <a^{p^i}> = <a^{p^j}>\bigcup <a^{p^i}> = \phi(b_i)\bigcup \phi(b_j)$
+
+故而二者同构。
+
 \subsection*{28}
+
+注：证明中的元素均为B中的任意元素
+
+首先证明$<B, \oplus >$构成Abel群。
+
+这是因为，由于B是布尔代数，故$\oplus$中每一次运算都封闭，进而$\oplus$
+是封闭的。
+
+$a\oplus b = (a\land \bar b) \lor (\bar a \land b) = (\bar a \land b) \lor (a\land \bar b) = (b\land \bar a) \lor (\bar b\land a) = b\oplus a$
+，故满足交换律
+
+\[
+\begin{aligned}
+    a\oplus(b\oplus c) &= (a\land \overline{(b\land \bar c)\lor (\bar b\land c)}) \lor (\bar a \land ((b\land \bar c)\lor (\bar b\land c)))\\
+    &= (a\land \overline{b\land \bar c}\land \overline{\bar b\land c})\lor (\bar a\land b\land \bar c)\lor (\bar a\land \bar b\land c)\\
+    &= (a\land(\bar b\lor c)\land (b\lor \bar c))\lor (\bar a\land b\land \bar c)\lor (\bar a\land \bar b\land c)\\
+    &= (a\land \bar b\land \bar c)\lor (a\land c\land b)\lor (\bar a\land b\land \bar c)\lor (\bar a\land \bar b\land c)\\
+    &= (a\land c\land b)\lor (\bar a\land \bar b\land c)\lor (\bar a\land b\land \bar c)\lor (a\land \bar b\land \bar c)
+\end{aligned}
+\]
+
+类似地，$a\oplus b\oplus c = (a\land c\land b)\lor (\bar a\land \bar b\land c)\lor (\bar a\land b\land \bar c)\lor (a\land \bar b\land \bar c)$，
+故$\oplus$满足结合律
+
+又$a\oplus 0 = (a\land 1)\lor (\bar a\land 0) = a\lor 0 = a$
+
+$a\oplus a = (a\land \bar a)\lor (\bar a\land a) = 0\lor 0 = 0$
+
+故B中存在单位元和逆元
+
+进而$<B, \oplus >$构成Abel群
+
+接下来，由于$\land$封闭且满足结合律，故$<B, \otimes>$构成半群
+
+由于$a\otimes(b\oplus c) = a\land ((b\land \bar c)\lor (\bar b \land c)) = (a\land b\land \bar c)\lor (a\land \bar b\land c)$
+
+\[
+\begin{aligned}
+    (a\otimes b)\oplus (a\otimes c) &= ((a\land b)\land \overline{a\land c}) \lor (\overline{a\land b} \land (a\land c))\\
+    &= (a\land b\land \bar c)\lor (a\land \bar b\land c)
+\end{aligned}
+\]
+
+故分配律成立
+
+因而$<B, \oplus, \otimes>$构成环
+
+最后，由于$a\otimes a = a\land a = a$，故$<B, \oplus, \otimes>$构成布尔环
 
 \subsection*{3}
 
+在$7, 77, ..., 77...7$(共N+1个7)中，必然有两项模N同余，他们的差
+必然形如$77...700...0$，为N的倍数，得证
+
 \subsection*{5}
+
+令$x_i$为第i天复习的小时数(i = 1,2,...,37)，$S_l = \sum\limits_{i = 1}^lx_i$
+
+考察$S_1, S_2, ..., S_37, S_1 + 13, S_2 + 13, ..., S_37 + 13$这74个数，
+由于这些数中每一项均大于等于0，小于等于60 + 13 = 73，故而必然有两项
+一样，又明显前一半数中两两不同，后一半数中两两不同，因而必然是$\exists
+i, j\in\{1, 2, ..., 37\}, i < j, s.t. S_j = S_i + 13, S_j - S_i = 13$
+，故第i+1天到第j天该生学习了13小时
 
 \subsection*{9}
 
+反设不然，那么放球数最少的盒子里至少有0个球，第二少的盒子里至少有1个球
+，第k少的盒子里至少有k - 1个球（否则前k少的盒子中球的数目种类少于k，必然
+有两个盒子球数相当）
+
+所以总球数至少为$0 + 1 + 2 + ... + (n - 1) = \frac{n(n-1)}{2}$
+，矛盾！
+
 \subsection*{10}
+
+由于所有数的和为$36\times 37 / 2 = 666$，故随机将圆盘12等分，必有一个扇形上数的和不少于$\lceil 666 / 12\rceil = 56$，这个扇形上有3个数字，得证
 
 \end{document}

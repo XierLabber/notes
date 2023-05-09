@@ -4,7 +4,7 @@ import math
 import random
 
 # 输出文件
-output_file_name: str = './topology_output/topo.json'
+output_file_name: str = './topology_output/topo_vl2.json'
 
 # 配置节点名
 edge_name: str = "EDGE"
@@ -21,12 +21,10 @@ epoch_length: int = 5 # 单位：秒
 log_components: List[str] = []
 
 # ===== 拓扑，k = 0 则忽视后面的部分 =====
-k: int = 32 # 如果k不为0则认为使用胖树，否则手动配置各层节点数目
 pod_no: int = 3
-plane_no: int = 4
 edge_no: int = 10
 core_no: int = 2
-aggregation_no: int = plane_no
+aggregation_no: int = 4
 # ====================================
 
 # ============ 配置node ============
@@ -74,29 +72,12 @@ max_choose_time = 20
 
 # 配置参数
 def init():
-    global pod_no, plane_no, edge_no, \
+    global pod_no, edge_no, \
            core_no, aggregation_no, \
            subnet_mask_suffix, task_no, \
            coverage
     
     subnet_mask_suffix = '/' + str(subnet_mask_length)
-    
-    if k != 0:
-        pod_no = int(k)
-        plane_no = int(k / 2)
-        edge_no = int(k / 2)
-        core_no = int(k / 2)
-        aggregation_no = plane_no
-        tmp = (k**3 / 8)
-        task_no = math.ceil(tmp * math.log(tmp) + (coverage - 1) * tmp * math.log(math.log(tmp)))
-    
-    # 如果想默认地配置task_no可以把这块代码改掉
-    # if task_no == 0:
-    #     m = max(
-    #         pod_no * aggregation_no * edge_no, 
-    #         plane_no * pod_no * core_no
-    #     )
-    #     task_no = math.ceil(m * math.log(m))
 
 def get_server_name(pod_id: int, edge_id: int):
     return "%s[%d]-%s[%d]-%s" % (pod_name, pod_id, edge_name, edge_id, server_name)
@@ -107,8 +88,8 @@ def get_edge_name(pod_id: int, edge_id: int):
 def get_aggregation_name(pod_id: int, aggregation_id: int):
     return "%s[%d]-%s[%d]" % (pod_name, pod_id, aggregation_name, aggregation_id)
 
-def get_core_name(plane_id: int, core_id: int):
-    return "%s[%d]-%s[%d]" % (plane_name, plane_id, core_name, core_id)
+def get_core_name(core_id: int):
+    return "%s[%d]" % (core_name, core_id)
 
 def gen_node_attr():
     ret = {}
@@ -141,9 +122,8 @@ def gen_switches():
         for j in range(aggregation_no):
             ret[get_aggregation_name(i, j)] = node_attr
     # 生成core层
-    for i in range(plane_no):
-        for j in range(core_no):
-            ret[get_core_name(i, j)] = node_attr
+    for i in range(core_no):
+        ret[get_core_name(i)] = node_attr
     return ret
 
 def ip_to_int(ip: str):
@@ -186,9 +166,8 @@ def init_node_node_ip_map():
     for pod_id in range(pod_no):
         for aggregation_id in range(aggregation_no):
             node_node_ip_map[get_aggregation_name(pod_id, aggregation_id)] = {}
-    for plane_id in range(plane_no):
-        for core_id in range(core_no):
-            node_node_ip_map[get_core_name(plane_id, core_id)] = {}
+    for core_id in range(core_no):
+        node_node_ip_map[get_core_name(core_id)] = {}
 
 def gen_links():
     
@@ -235,10 +214,9 @@ def gen_links():
     # 生成aggregation-core的链路
     for pod_id in range(pod_no):
         for aggregation_id in range(aggregation_no):
-            plane_id = aggregation_id
             cur_aggregation_name = get_aggregation_name(pod_id, aggregation_id)
             for core_id in range(core_no):
-                cur_core_name = get_core_name(plane_id, core_id)
+                cur_core_name = get_core_name(core_id)
                 cur_ip = gen_next_ip()
                 ret.append(
                     [cur_aggregation_name, cur_core_name, cur_ip, subnet_mask_suffix, link_attr]

@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)file:///C:/Users/lenovo/AppData/Local/Temp/mume2023317-24160-1aq5hzg.tyld.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>期中复习</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./期中复习_files/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h3 class="mume-header" id="%E7%94%B5%E5%AD%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%85%B4%E8%B5%B7">电子计算机的兴起</h3>
+
+<ul>
+<li><strong>世界上第一台通用电子计算机</strong>
+<ul>
+<li>ENIAC</li>
+</ul>
+</li>
+<li>主要设计者
+<ul>
+<li>约翰·莫克利</li>
+<li>约翰·埃克特</li>
+</ul>
+</li>
+<li><strong>EDVAC的特点</strong>
+<ul>
+<li>由5个基本部分组成</li>
+<li>指令和数据采用二进制，极大简化了逻辑线路</li>
+<li>实现“存储程序概念”，大幅提升了任务效率</li>
+</ul>
+</li>
+<li><strong>第一台冯诺伊曼结构的计算机</strong>
+<ul>
+<li>EDSAC</li>
+</ul>
+</li>
+<li>开启了商用计算机的时代
+<ul>
+<li>UNIVAC</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%BB%E8%A6%81%E7%B1%BB%E5%88%AB">计算机的主要类别</h3>
+
+<ul>
+<li>分类
+<ul>
+<li>超级计算机
+<ul>
+<li>CDC6600</li>
+<li>适用于高度计算密集型的科学计算任务</li>
+<li><strong>前3名</strong>
+<ul>
+<li>中美日</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>大型计算机
+<ul>
+<li>IBM701</li>
+<li>以面向大容量数据的事务处理为主，兼顾科学计算</li>
+</ul>
+</li>
+<li>小型计算机
+<ul>
+<li>PDP-8</li>
+<li>应用领域非常广泛，涉及事务处理和科学计算等诸多方面</li>
+</ul>
+</li>
+<li>微型计算机
+<ul>
+<li>Altair8800</li>
+<li>个人处理数据、文字、图形、图像、声音等</li>
+<li>家用电器、仪器仪表、工业设备的控制等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%93%E6%9E%84">冯·诺依曼计算机结构</h3>
+
+<ul>
+<li>冯诺伊曼结构对要点
+<ul>
+<li>计算机由运算器、控制器、存储器、输入设备和输出设备5部分组成
+<ul>
+<li>CA、CC、M、I、O</li>
+<li>外部记录设备：R</li>
+</ul>
+</li>
+<li>数据和程序均以二进制代码形式不加区别地存放在存储器中，存放位置由存储器的地址指定</li>
+<li>计算机在工作时能够自动地从存储器中取出指令加以执行</li>
+</ul>
+</li>
+<li><strong>刚启动时发生了什么</strong>
+<ul>
+<li>系统启动</li>
+<li>从BIOS芯片取第一条指令，跳转到BIOS另一条指令，简单地配置主存</li>
+<li>将BIOS指令搬到主存中（BIOS太慢了且不能写，保证地址是一样的，北桥芯片特殊设计，读发送到BIOS，写发送到主存</li>
+<li>设北桥到寄存器，掐断北桥读“发送到BIOS”</li>
+<li>执行BIOS程序，配置...</li>
+<li>从硬盘搬运操作系统</li>
+</ul>
+</li>
+<li>bios严格算()
+<ul>
+<li>外部的存储系统</li>
+</ul>
+</li>
+<li>从C语言到机器语言
+<ul>
+<li>C语言-&gt;汇编语言-&gt;机器语言</li>
+<li>高级语言源程序-&gt;预处理器-&gt;高级语言程序-&gt;编译器-&gt;汇编语言-&gt;汇编器-&gt;目标文件(机器语言)-&gt;(+库文件(机器语言))链接器-&gt;可执行文件(机器语言)</li>
+</ul>
+</li>
+<li>冯诺依曼结构和具体实现
+<ul>
+<li>CPU - CA CC</li>
+<li>主存 - M</li>
+<li>CPU-北桥芯片-主存</li>
+<li>南桥 - I/O</li>
+<li>硬盘 - R</li>
+<li>GPU有时候承担CA CC I/O功能</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="x86%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%A7%88">x86指令系统概览</h3>
+
+<ul>
+<li>Intel 8086
+<ul>
+<li>内部的通用寄存器为16位</li>
+<li>对外有16根数据线和20根地址线,可寻址的内存空间为1MByte（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>20</mn></msup></mrow><annotation encoding="application/x-tex">2^{20}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">20</span></span></span></span></span></span></span></span></span></span></span></span>）</li>
+<li>物理地址的形成采用“段加偏移”的方式</li>
+</ul>
+</li>
+<li>Intel 80286
+<ul>
+<li>希望访问24位</li>
+<li>引入了“保护模式”，但是机制有缺陷
+<ul>
+<li>例如，每个段仍为64KB，严重限制软件规模</li>
+</ul>
+</li>
+<li>实模式
+<ul>
+<li>8086只有一块内存供以使用</li>
+<li>286支持上述模式，称为实模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Intel 80386（IA-32的开始）
+<ul>
+<li>80x86系列中的第一款32位微处理器</li>
+<li>地址总线扩展到32位，可寻址4GB的内存空间</li>
+<li>改进了“保护模式”（例如，段范围可达4GB）</li>
+<li>增加了“虚拟8086模式”, 可以同时模拟多个8086微处理器</li>
+</ul>
+</li>
+<li>AMD Opteron
+<ul>
+<li>x86扩展到64位的第一款微处理器</li>
+<li>可以访问高于4GB的存储器</li>
+<li>兼容32位x86程序，且不降低性能</li>
+</ul>
+</li>
+<li>x86-64运行模式
+<ul>
+<li>传统模式：32位，以前的程序不需要重新编译</li>
+<li>长模式：
+<ul>
+<li>纯64位模式，原程序需要重新编译</li>
+<li>兼容模式，内存变大了，不需要重新编译已有程序</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="x86%E7%9A%84%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4">x86的地址空间</h3>
+
+<ul>
+<li>IA-32和8086的寄存器模型
+<ul>
+<li>通用寄存器
+<ul>
+<li>AX：低16位</li>
+<li>AL：低8位</li>
+<li>AH：低16位的高8位</li>
+<li>EAX：32位</li>
+</ul>
+</li>
+<li>指令指针寄存器：IP，EIP</li>
+<li>标志寄存器：(E)FLAGS</li>
+<li>段寄存器</li>
+</ul>
+</li>
+<li>段寄存器的说明
+<ul>
+<li>段寄存器的功能在实模式下和保护模式下是()
+<ul>
+<li>不相同的</li>
+</ul>
+</li>
+<li>CS
+<ul>
+<li>代码段寄存器（Code Segment）</li>
+<li>用CS:IP指示下一条要执行的指令地址</li>
+</ul>
+</li>
+<li>DS
+<ul>
+<li>数据段寄存器（Data Segment）</li>
+</ul>
+</li>
+<li>ES
+<ul>
+<li>附加段寄存器（Extra Segment）</li>
+<li>用ES:DI指示串操作的目的操作数的地址</li>
+</ul>
+</li>
+<li>SS
+<ul>
+<li>堆栈段寄存器（Stack Segment）</li>
+<li>ESP/SP或EBP/BP指示堆栈栈顶的偏移地址</li>
+<li>SP-&gt;堆栈指针，BP-&gt;（堆栈）基址指针</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>8086
+<ul>
+<li>8086的物理地址生成
+<ul>
+<li>物理地址=段基值×16+偏移量</li>
+</ul>
+</li>
+<li>3000H：H是16进制</li>
+<li>将20位物理地址分成两部分的问题：
+<ul>
+<li>段号寄存器与其他寄存器不兼容，操作麻烦</li>
+<li>每个逻辑段固定占用64K字节，会浪费存储空间</li>
+</ul>
+</li>
+<li>附加段
+<ul>
+<li>附加的数据段，也用于数据的保存</li>
+<li>某些串操作指令将附加段作为其目的操作数的存放区域</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IA-32
+<ul>
+<li>IA-32的存储器寻址
+<ul>
+<li>实模式 CS:IP</li>
+<li>保护模式 CS:EIP</li>
+</ul>
+</li>
+<li>保护模式下，段基址不在CS中，而是在内存中
+<ul>
+<li>GDT：全局描述符表</li>
+<li>GDTR：全局描述符表的地址寄存器</li>
+<li>GDT可在系统中的任何存储单元，通过GDTR定位</li>
+<li>描述符：基地址、权限、段界限、其他(32位)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>x86-64
+<ul>
+<li>描述符中没有了段基址和段界限，只有访问权限字节和若干控制位。所有的代码段都从地址0开始。</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="x86%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%9A%84%E6%A0%BC%E5%BC%8F">x86汇编语言的格式</h3>
+
+<ul>
+<li>Intel格式与AT&amp;T格式
+<ul>
+<li>Intel格式
+<ul>
+<li>Intel制定，x86相关的文档手册使用该格式</li>
+<li>主要应用在MS-DOS和Windows等系统中</li>
+</ul>
+</li>
+<li>AT&amp;T格式
+<ul>
+<li>AT&amp;T制定，起源于贝尔实验室研发的Unix</li>
+<li>最初用在PDP-11/VAX等机型，后移植到x86</li>
+<li>主要应用在Unix和Linux等系统中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>区别1：前缀（后缀）
+<ul>
+<li>Intel语法，寄存器和和立即数都没有前缀，十六进制和二进制立即数后缀分别为h和b，以字母开头的十六进制数必须加0</li>
+<li>AT&amp;T语法，寄存器使用前缀“%”，立即数使用前缀“$”，十六进制立即数使用前缀“0x”</li>
+</ul>
+</li>
+<li>区别2：操作数方向
+<ul>
+<li>Intel语法，第一个操作数是目的操作数，第二个操作数是源操作数</li>
+<li>AT&amp;T语法，第一个数是源操作数，第二个数是目的操作数</li>
+</ul>
+</li>
+<li>区别3：内存单元操作数
+<ul>
+<li>Intel语法，基寄存器用“［］”标明</li>
+<li>AT&amp;T语法，基寄存器用“（）”标明</li>
+</ul>
+</li>
+<li>区别4：间接寻址方式
+<ul>
+<li>Intel语法，segreg:[base+index*scale+disp]</li>
+<li>AT&amp;T语法，%segreg:disp(base,index,scale)</li>
+</ul>
+</li>
+<li>区别5：操作码后缀
+<ul>
+<li>Intel语法
+<ul>
+<li>内存单元操作数带前缀，以指出操作数的大小</li>
+<li>dword ptr；word ptr；byte ptr</li>
+</ul>
+</li>
+<li>AT&amp;T语法
+<ul>
+<li>操作码带后缀，以指出操作数的大小</li>
+<li>l：32位/长整数；w：字/16位；b：字节/8位</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>汇编语言程序的组成
+<ul>
+<li>分段结构
+<ul>
+<li>按段进行组织，最多由4个段组成（代码、数据、附加、堆栈）</li>
+<li>每个段以“段名 SEGMENT”开始，以“段名 ENDS”结束</li>
+<li>ASSUME CS:CODE, DS:DATA, SS:STACK</li>
+</ul>
+</li>
+<li>语句行
+<ul>
+<li>段由若干语句行组成</li>
+<li>语句行的三种类型
+<ul>
+<li>指令</li>
+<li>伪指令</li>
+<li>宏指令</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>伪指令
+<ul>
+<li>定义变量
+<ul>
+<li>说明符DB、DW、DD</li>
+</ul>
+</li>
+<li>EQU：
+<ul>
+<li>定义常变量，左边的符号名不可以重复定义</li>
+</ul>
+</li>
+<li>=：
+<ul>
+<li>定义常变量，左边的符号名可以重复定义</li>
+</ul>
+</li>
+<li>ORG说明符：
+<ul>
+<li>格式：ORG 常数表达式，作用：指定当前可用的存储单元的偏移地址为常数表达式的值</li>
+</ul>
+</li>
+<li>EVEN说明符：
+<ul>
+<li>格式：EVEN，作用：将当前可用的存储单元的偏移地址调整为最近的偶数值</li>
+</ul>
+</li>
+<li>PROC说明符
+<ul>
+<li>格式：过程名 PROC 类型属性名</li>
+<li>说明：从“过程名”代表的地址开始定义一个过程；“类型属性名”可选择NEAR（近过程）或FAR（远过程），默认为NEAR</li>
+</ul>
+</li>
+<li>ENDP说明符
+<ul>
+<li>格式：过程名 ENDP</li>
+<li>说明：表示该过程到此结束。此处的“过程名”必须与过程开始时PROC左边的“过程名”相同</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="x86%E6%8C%87%E4%BB%A4-%E4%BC%A0%E9%80%81%E7%B1%BB">x86指令-传送类</h3>
+
+<ul>
+<li>把数据或地址传送到寄存器或存储器单元中</li>
+<li>格式
+<ul>
+<li>MOV DST, SRC</li>
+</ul>
+</li>
+<li>MOV指令的传送限制
+<ul>
+<li>立即数不能作为目的操作数</li>
+<li>存储单元之间不能直接传送</li>
+<li>立即数不能直接送段寄存器</li>
+<li>CS不能作为目的寄存器</li>
+<li>段寄存器之间不能直接传送</li>
+</ul>
+</li>
+<li>XCHG OPR1, OPR2
+<ul>
+<li>(交换)</li>
+<li>两个操作数的位宽要相同</li>
+<li>存储单元之间不能直接传送</li>
+<li>不允许使用段寄存器</li>
+</ul>
+</li>
+<li>XLAT
+<ul>
+<li>从BX中取得数据表起始地址的偏移量</li>
+<li>从AL中取得数据表项索引值</li>
+<li>在数据表中查得表项内容</li>
+<li>将查得的表项内容存入AL</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="x86%E6%8C%87%E4%BB%A4-%E8%BF%90%E7%AE%97%E7%B1%BB">x86指令-运算类</h3>
+
+<ul>
+<li>作用
+<ul>
+<li>完成加、减、乘、除等算术运算</li>
+<li>提供运算结果调整、符号扩展等功能</li>
+</ul>
+</li>
+<li>操作数的限制
+<ul>
+<li>对于双操作数的指令，限制与MOV指令相同
+<ul>
+<li>目的操作数不能是立即数或CS寄存器</li>
+<li>两个操作数不能同时为存储器操作数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ADD DST, SRC</li>
+<li>ADC DST, SRC：含进位的加</li>
+<li>INC OPR：加1</li>
+<li>DAA指令
+<ul>
+<li>（加法十进制调整指令）</li>
+<li>跟在二进制加法指令之后</li>
+<li>将AL中的“和”数调整为压缩BCD数格式</li>
+<li>调整结果送回AL</li>
+<li>BCD：把16进制数换成10进制，每两个字符占一个byte</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="x86%E6%8C%87%E4%BB%A4-%E8%BD%AC%E7%A7%BB%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%AE%83">x86指令-转移类及其它</h3>
+
+<ul>
+<li>改变指令执行顺序</li>
+<li>直接 / 间接；有条件 / 无条件</li>
+<li>无条件转移指令 - 直接转移
+<ul>
+<li>JMP SHORT LABEL
+<ul>
+<li>操作：IP←IP+8位的位移量（-128~127Byte）</li>
+<li>位移量是一个带符号数，为LABEL的偏移地址与当前EIP/IP值(下一条指令的起始地址)之差</li>
+</ul>
+</li>
+<li>JMP NEAR PTR LABEL
+<ul>
+<li>操作：IP←IP+16位的位移量（±32KByte）</li>
+<li>从80386开始，近转移可以使用32位的位移量</li>
+</ul>
+</li>
+<li>JMP FAR PTR LABEL
+<ul>
+<li>操作：IP←LABEL的偏移地址；CS ←LABEL的段基值</li>
+</ul>
+</li>
+<li>JMP DWORD PTR OPR
+<ul>
+<li>寻址到OPR指定的存储器单元双字</li>
+<li>将该双字中的低字送到IP寄存器中</li>
+<li>将该双字中的高字送到CS寄存器中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>条件转移指令的说明
+<ul>
+<li>根据当前的状态标志位决定是否发生转移</li>
+<li>8086中，所有的条件转移都是
+<ul>
+<li>短转移</li>
+<li>同一代码段内，-128~127字节范围内</li>
+<li>从80386起，条件转移指令可以使用32位的长位移量</li>
+</ul>
+</li>
+<li>LOOPNE/LOOPNZ指令
+<ul>
+<li>LOOPNE LABEL / LOOPNZ LABEL</li>
+<li>CX←CX-1
+<ul>
+<li>若CX≠0且ZF=0，转移到LABEL处继续执行，否则，结束循环，顺序执行下一条指令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>处理器控制指令
+<ul>
+<li>STX：把X(某标志位)置1</li>
+<li>CLX：把X(某标志位)置0</li>
+<li>CMX：把X(某标志位)反转</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>x86指令的发展
+<ul>
+<li>兼容性</li>
+<li>指令系统的增强和扩充</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="mips%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9">MIPS指令的主要特点</h3>
+
+<ul>
+<li><strong>对着表要可以向二进制码互相转化</strong></li>
+<li>lw <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo separator="true">,</mo><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">8,(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">8</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span></span></span></span>19)
+<ul>
+<li>8号寄存器为目的寄存器</li>
+</ul>
+</li>
+<li>add <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">10,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mpunct">,</span></span></span></span>9,$8
+<ul>
+<li>10号寄存器为目的寄存器</li>
+</ul>
+</li>
+<li>sw <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo separator="true">,</mo><mn>32</mn><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">10,32(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">32</span><span class="mopen">(</span></span></span></span>19)
+<ul>
+<li>存储，将10号寄存器的内容存入存储器，地址为19号寄存器的内容加32</li>
+</ul>
+</li>
+<li>MIPS指令的主要特点
+<ul>
+<li>固定的指令长度（32-bit，即1 word），简化了从存储器取指令</li>
+<li>只有Load和Store指令可以访问存储器</li>
+<li>简单的寻址模式，简化了从存储器取操作数</li>
+<li>指令数量少，指令功能简单，一条指令只完成一个操作，简化指令的执行过程</li>
+</ul>
+</li>
+<li>MIPS指令的基本格式
+<ul>
+<li>R：Register，寄存器</li>
+<li>I：Immediate，立即数</li>
+<li>J：Jump，无条件转移</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="mips%E6%8C%87%E4%BB%A4%E5%88%86%E7%B1%BB%E8%AF%B4%E6%98%8Er%E5%9E%8B">MIPS指令分类说明：R型</h3>
+
+<ul>
+<li>R型指令格式包含6个域
+<ul>
+<li>2个6-bit域，可表示0~63的数</li>
+<li>4个5-bit域，可表示0~31的数</li>
+<li>opcode: 6bit, 全0</li>
+<li>funct: 6bit，指定R型指令的类型</li>
+<li>rs Source Register
+<ul>
+<li>通常用于指定第一个源操作数所在的寄存器编号</li>
+</ul>
+</li>
+<li>Target Register
+<ul>
+<li>通常用于指定第二个源操作数所在的寄存器编号</li>
+</ul>
+</li>
+<li>Destination Register
+<ul>
+<li>通常用于指定目的操作数（保存运算结果）的寄存器编号</li>
+</ul>
+</li>
+<li>5-bit的域可表示0~31，对应32个通用寄存器</li>
+<li>shamt shift amount
+<ul>
+<li>用于指定移位指令进行移位操作的位数</li>
+<li>5-bit的域可表示0~31，对于32-bit数，更多移位没有实际意义</li>
+<li>对于非移位指令，该域设为0</li>
+</ul>
+</li>
+<li>add <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">8,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">8</span><span class="mpunct">,</span></span></span></span>9,$10 # R[rd]=R[rs]+R[rt]</li>
+<li>sll <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">8,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">8</span><span class="mpunct">,</span></span></span></span>9,10 # R[rd]=R[rt]&lt;&lt;shamt</li>
+</ul>
+</li>
+<li>MIPS指令分类说明：I型
+<ul>
+<li>16位立即数
+<ul>
+<li>无法满足全部需求，但大多数时候可以满足需求</li>
+</ul>
+</li>
+<li>opcode(6) + rs(5) + rt(5)</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="mips%E6%8C%87%E4%BB%A4%E5%88%86%E7%B1%BB%E8%AF%B4%E6%98%8E%E5%88%86%E6%94%AF">MIPS指令分类说明：分支</h3>
+
+<ul>
+<li>Branch
+<ul>
+<li>分支：改变控制流</li>
+</ul>
+</li>
+<li>Conditional Branch
+<ul>
+<li>条件分支：根据比较的结果改变控制流</li>
+<li>两条指令：branch if equal (beq) ；branch if not equal (bne)</li>
+</ul>
+</li>
+<li>Unconditional Branch
+<ul>
+<li>非条件分支：无条件地改变控制流</li>
+<li>一条指令： jump (j)</li>
+</ul>
+</li>
+<li>条件分支指令（I型）
+<ul>
+<li>格式：beq reg1,reg2,L1
+<ul>
+<li>if (value in reg1)==(value in reg2) goto L1</li>
+</ul>
+</li>
+<li>如何判断&gt;、≥、≤的情况？
+<ul>
+<li>slt <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mn>0</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">t0,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">t</span><span class="mord">0</span><span class="mpunct">,</span></span></span></span>s0,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mn>1</mn><mi mathvariant="normal">#</mi></mrow><annotation encoding="application/x-tex">s1 \#</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">s</span><span class="mord">1#</span></span></span></span>t0 = 1, if g&lt;h
+<ul>
+<li>set less than</li>
+<li>不使用标志位的，bne，跟0号寄存器比较(使得bne只用有比较两个寄存器这一种类型，节省指令数)</li>
+<li>为精简指令，又不希望所有比较都有对应的类似slt的指令，因而需要指令的组合完成之</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>条件分支指令的目标地址范围
+<ul>
+<li>如何充分发挥16-bit的作用？
+<ul>
+<li>以当前PC为基准，16-bit位移量可以表示±<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>15</mn></msup></mrow><annotation encoding="application/x-tex">2^{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">15</span></span></span></span></span></span></span></span></span></span></span></span>bytes
+<ul>
+<li>MIPS的指令长度固定为32-bit（word）</li>
+<li>16-bit位移量可以表示 ±<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>15</mn></msup></mrow><annotation encoding="application/x-tex">2^{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">15</span></span></span></span></span></span></span></span></span></span></span></span> words = ±<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>17</mn></msup></mrow><annotation encoding="application/x-tex">2^{17}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">17</span></span></span></span></span></span></span></span></span></span></span></span> bytes（±128KB）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>目标地址计算方法：
+<ul>
+<li>分支条件不成立，PC = PC + 4 = next instruction</li>
+<li>分支条件成立，PC = (PC+4) + (immediate*4)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>非条件分支指令（J型）
+<ul>
+<li>在不需要条件判断的情况下，如何扩大目标地址范围
+<ul>
+<li>只能使用26bit(6bit opcode)</li>
+<li>New PC ={(PC+4)[31..28], address, 00}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>非条件分支指令（R型）
+<ul>
+<li>相对于当前PC的最远距离为±<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>28</mn></msup></mrow><annotation encoding="application/x-tex">2^{28}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">28</span></span></span></span></span></span></span></span></span></span></span></span>bytes（±256MB）
+<ul>
+<li>最极端的情况，注意这里不是从当前指令当为中间指令的跳转</li>
+</ul>
+</li>
+<li>如何到达更远的目标地址？
+<ul>
+<li>（1）2次调用j指令；（2）使用jr指令：jr rs</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="mips%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B">MIPS汇编程序示例</h3>
+
+<ul>
+<li>汇编器提供的伪指令
+<ul>
+<li>寄存器传送
+<ul>
+<li>格式：move dst,src</li>
+<li>实际：addi dst,src,0</li>
+<li>MIPS甚至没有寄存器传送</li>
+</ul>
+</li>
+<li>装载地址：Load Address (la)
+<ul>
+<li>la dst,label</li>
+</ul>
+</li>
+<li>装载32位立即数:Load Immediate (li)
+<ul>
+<li>格式:li dst,imm</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>（MIPS串传递需要很长的指令）对比x86
+<ul>
+<li>x86 MOVS指令说明
+<ul>
+<li>MOVSB
+<ul>
+<li>操作：将地址DS:SI所指向的存储器字节单元传送到地址ES:DI；修改SI和DI的内容，指向串的下一元素</li>
+</ul>
+</li>
+<li>MOVSW
+<ul>
+<li>操作：将地址DS:SI所指向的存储器字单元传送到地址ES:DI；修改SI和DI的内容，指向串的下一元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>重复前缀说明（1）
+<ul>
+<li>REP 串操作指令</li>
+<li>操作：当CX≠0时，重复执行串操作指令</li>
+<li>适用：MOVS（串传送），STO（存串）</li>
+<li>REP MOVSB可以减少不必要的取指</li>
+</ul>
+</li>
+<li>x86串操作指令的共同特性
+<ul>
+<li>隐含操作数
+<ul>
+<li>源串地址为DS:SI，目的串地址为ES:DI</li>
+<li>串的长度在CX寄存器中</li>
+</ul>
+</li>
+<li>处理完一个串元素后的操作（硬件自动完成）
+<ul>
+<li>若使用重复前缀，则CX ←CX-1</li>
+<li>修改SI和DI</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>x86使用标志寄存器DF判断串传送的方向
+<ul>
+<li>设置DF=0
+<ul>
+<li>从“源串”的低地址开始传送</li>
+<li>传送过程中，SI和DI自动增量修改</li>
+</ul>
+</li>
+<li>设置DF=1
+<ul>
+<li>从“源串”的高地址开始传送</li>
+<li>传送过程中，SI和DI自动减量修改</li>
+</ul>
+</li>
+<li>用途
+<ul>
+<li>应对“源串”和“目的串”的存储区域部分重叠的问题</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>REPNE 串操作指令 或 REPNZ 串操作指令
+<ul>
+<li>当ZF=0且CX≠0时，重复执行</li>
+<li>适用：CMPS（串比较），SCAS（串扫描）</li>
+</ul>
+</li>
+<li>SCASB指令 / SCASW指令（字节/字串扫描）
+<ul>
+<li>比较“AL/AX的内容”和“目的串当前字节/字”</li>
+<li>修改DI而不修改SI</li>
+<li>不回写结果，只影响标志位</li>
+<li>说明
+<ul>
+<li>使用重复前缀REPE / REPZ或REPNE / REPNZ</li>
+<li>寻找“目的串”中第一个与AL/AX的值相同或不相同的元素</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%E4%B8%BE%E4%BE%8B">指令系统举例</h3>
+
+<ul>
+<li>ARM指令格式
+<ul>
+<li>设置了4-bit的条件码导致占用了太多指令空间，不能给3个5-bit寄存器编号指定空间，因而只有16个寄存器</li>
+<li>功能位域的位置不统一，给指令译码带来不便</li>
+<li>加法配不同的条件码可以得到不同的指令</li>
+</ul>
+</li>
+<li>RISC-V
+<ul>
+<li>相较MIPS更工整</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="%E8%BF%90%E7%AE%97%E7%94%B5%E8%B7%AF%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80">运算电路的数学基础</h3>
+
+<ul>
+<li>莱布尼兹：二进制</li>
+<li>布尔：布尔代数</li>
+<li>香农：开关电路模拟布尔逻辑运算</li>
+</ul>
+<h3 class="mume-header" id="%E6%99%B6%E4%BD%93%E7%AE%A1%E5%92%8C%E9%97%A8%E7%94%B5%E8%B7%AF">晶体管和门电路</h3>
+
+<ul>
+<li>CMOS集成电路
+<ul>
+<li>由PMOS和NMOS共同构成的互补型MOS集成电路</li>
+</ul>
+</li>
+<li>NMOS / PMOS
+<ul>
+<li>
+<img src="./期中复习_files/23.jpeg">
+</li>
+</ul>
+</li>
+<li>非门
+<ul>
+<li>
+<img src="./期中复习_files/24.jpeg">
+</li>
+</ul>
+</li>
+<li>与非门
+<ul>
+<li>
+<img src="./期中复习_files/25.jpeg">
+</li>
+</ul>
+</li>
+<li>或非门
+<ul>
+<li>
+<img src="./期中复习_files/26.jpeg">
+</li>
+</ul>
+</li>
+<li>异或运算
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mover accent="true"><mi>B</mi><mo>ˆ</mo></mover><mo>=</mo><mo stretchy="false">(</mo><mi mathvariant="normal">¬</mi><mi>A</mi><mo>∧</mo><mi>B</mi><mo stretchy="false">)</mo><mo>∨</mo><mo stretchy="false">(</mo><mi>A</mi><mo>∧</mo><mi mathvariant="normal">¬</mi><mi>B</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">A\^B = (\lnot A \land B)\lor (A\land \lnot B)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9468em;"></span><span class="mord mathnormal">A</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">ˆ</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">¬</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+</li>
+<li>ALU：与运算单元：32个与门并起来，或运算或门并起来+多选器
+<ul>
+<li>能耗不友好，需要把控制信号连到对应的运算上减少不必要运算</li>
+</ul>
+</li>
+<li>半加器 / 全加器
+<ul>
+<li>
+<img src="./期中复习_files/27.jpeg">
+</li>
+</ul>
+</li>
+<li>减法运算
+<ul>
+<li>A - B = A + (~B + 1)</li>
+</ul>
+</li>
+<li>多路选择器
+<ul>
+<li>
+<img src="./期中复习_files/28.jpeg">
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="%E6%97%B6%E9%92%9F%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8">时钟和触发器</h3>
+
+<ul>
+<li>D触发器
+<ul>
+<li>具有存储信息能力的基本单元</li>
+<li>主要有一个数据输入、一个数据输出和一个时钟输入</li>
+<li>在时钟clock的上升沿（0→1），采样输入D的值，传送到输出Q，其余时间输出Q的值不变</li>
+</ul>
+</li>
+<li>具有存储功能的电路
+<ul>
+<li>
+<img src="./期中复习_files/29.jpeg">
+</li>
+<li>当且仅当Set / Reset数据时改变输出</li>
+</ul>
+</li>
+<li>D锁存器
+<ul>
+<li>
+<img src="./期中复习_files/30.jpeg">
+</li>
+<li>在C为高电平时所存数据D</li>
+</ul>
+</li>
+<li>D触发器
+<ul>
+<li>
+<img src="./期中复习_files/31.jpeg">
+</li>
+<li>该结构在时钟C下降沿时锁存数据D</li>
+<li>还有时钟上升沿触发的结构</li>
+</ul>
+</li>
+<li>SRAM的基本存储单元
+<ul>
+<li>
+<img src="./期中复习_files/32.jpeg">
+</li>
+</ul>
+</li>
+<li>SRAM的基本结构
+<ul>
+<li>
+<img src="./期中复习_files/33.jpeg">
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E5%88%86%E7%B1%BB">控制器的原理和分类</h3>
+
+<ul>
+<li>控制器的基本任务
+<ul>
+<li>按指令每一步操作的需要，发出特定的命令信号</li>
+</ul>
+</li>
+<li>控制器的分类
+<ul>
+<li>硬布线控制器</li>
+<li>微程序控制器</li>
+</ul>
+</li>
+<li>硬布线控制器
+<ul>
+<li>也称
+<ul>
+<li>硬连线控制器或组合逻辑控制器</li>
+</ul>
+</li>
+<li>主要部件
+<ul>
+<li>环形脉冲发生器</li>
+<li>指令译码器</li>
+<li>微命令编码器</li>
+</ul>
+</li>
+<li>硬布线控制器的优缺点（小结）
+<ul>
+<li>优点：
+<ul>
+<li>执行速度很快</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>控制逻辑的电路复杂，设计和验证的难度大</li>
+<li>扩充和修改也很困难</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>微程序控制器
+<ul>
+<li>四个部分
+<ul>
+<li>控制存储器CM
+<ul>
+<li>存放微代码</li>
+<li>通常为只读存储器</li>
+</ul>
+</li>
+<li>微地址形成电路
+<ul>
+<li>形成下一条微指令的地址</li>
+</ul>
+</li>
+<li>微地址寄存器
+<ul>
+<li>保存微指令对应微地址，指向相应的CM单元</li>
+</ul>
+</li>
+<li>微指令寄存器
+<ul>
+<li>微操作控制字段 + 顺序控制字段</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>微指令的每一个bit对应一个信号——微命令</li>
+<li>缺点
+<ul>
+<li>速度较慢</li>
+</ul>
+</li>
+<li>优点
+<ul>
+<li>规整性</li>
+<li>灵活性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="%E6%85%95%E8%AF%BE">慕课</h2>
+
+<ul>
+<li>计算机执行一条指令的主要步骤
+<ul>
+<li>取址</li>
+<li>译码</li>
+<li>执行</li>
+<li>回写</li>
+</ul>
+</li>
+<li>模型机
+<ul>
+<li>控制电路 -控制总线-控制逻辑</li>
+<li>MAR -地址总线- MAR</li>
+<li>MDR -数据总线- MDR</li>
+<li>存储器 - 控制器</li>
+<li>控制器主要组成部分
+<ul>
+<li>指令寄存器IR</li>
+<li>程序计数器PC</li>
+<li>MAR</li>
+<li>MDR</li>
+<li>指令译码部件</li>
+<li>控制电路</li>
+</ul>
+</li>
+<li>输入输出
+<ul>
+<li>在三个总线分支出指向输入输出设备的分支总线（显卡、南桥芯片链接输入输出，北桥芯片分流指令）</li>
+</ul>
+</li>
+<li>南北桥架构的演变
+<ul>
+<li>CPU-主存脱离北桥</li>
+<li>优化CPU-PCIe显卡-显示器的连接，北桥剩余部分整合到南桥</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LEA指令（Load Effective Address）
+<ul>
+<li>格式：LEA REG, SRC</li>
+<li>操作：
+<ul>
+<li>把源操作数（SRC）的有效地址（即偏移地址）装入指定寄存器（REG）</li>
+</ul>
+</li>
+<li>说明：
+<ul>
+<li>源操作数必须是存储器操作数</li>
+<li>目的操作数必须是通用寄存器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MOVS</li>
+<li>MIPS中一个字是32位</li>
+<li>“溢出”的检查方法
+<ul>
+<li>“最高位的进位输入”不等于“最高位的进位输出”</li>
+<li>MIPS处理溢出：
+<ul>
+<li>有符号数产生异常</li>
+<li>无符号数不处理溢出</li>
+</ul>
+</li>
+<li>x86处理溢出：
+<ul>
+<li>有符号数溢出置位溢出标志OF</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>加法器的优化
+<ul>
+<li>行波进位加法器（Ripple-Carry Adder，RCA）
+<ul>
+<li>低位全加器的Cout连接到高一位全加器Cin</li>
+<li>关键路径总延迟时间=(2n+1)T</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>生成（Generate）信号：Gi=Ai·Bi</li>
+<li>传播（Propagate）信号：Pi=Ai+Bi</li>
+<li>Ci+1=Gi+Pi·Ci</li>
+<li>C4=G3+P3·G2+P3·P2·G1+P3·P2·P1·G0+P3·P2·P1·P0·C0</li>
+<li>超前进位加法器（Carry-Lookahead Adder，CLA）
+<ul>
+<li>提前算出来Ci</li>
+<li>优点：计算Ci+1的延迟时间固定为三级门延迟，与加法器的位数无关(总延迟4个门)</li>
+<li>缺点：如果进一步拓宽加法器的位数，则电路变得非常复杂</li>
+</ul>
+</li>
+<li>乘法器的优化
+<ul>
+<li>优化1：加法和移位并行</li>
+<li>优化2：
+<ul>
+<li>被乘数为不移位的N位寄存器</li>
+<li>加法器为N位</li>
+<li>乘积+乘数为一个2N位带右移的寄存器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>除法进行N+1次，乘法N次</li>
+<li>原始设计中乘数和商都是N bit，其他的都是2N bit</li>
+<li>优化后寄存器大小都是相同的，乘法器右移，除法器左移</li>
+<li>指令获取单元IFU：Instruction Fetch Unit</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  </body></html>
